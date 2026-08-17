@@ -688,6 +688,85 @@ section.live .sec-glow{opacity:1;}
   box-shadow:0 0 0 3px color-mix(in srgb, var(--accent-2) 18%, transparent);
 }
 
+/* ==== LEAD FORM ==== */
+.lead-form{margin:0 0 6px;}
+.field{margin-bottom:15px;}
+.field label{
+  display:block;font-size:13.5px;font-weight:500;
+  color:var(--ink-2);margin-bottom:6px;
+}
+.field input{
+  width:100%;font-family:inherit;font-size:16px;      /* 16px stops iOS zoom-on-focus */
+  color:var(--ink-0);background:var(--bg-1);
+  border:1px solid var(--line);border-radius:12px;
+  padding:14px 15px;min-height:52px;
+  transition:border-color .25s var(--ease), box-shadow .25s var(--ease), background .25s var(--ease);
+}
+.field input::placeholder{color:color-mix(in srgb, var(--ink-3) 75%, transparent);}
+.field input:focus{
+  outline:none;background:var(--bg-2);
+  border-color:color-mix(in srgb, var(--accent-2) 65%, transparent);
+  box-shadow:0 0 0 3px color-mix(in srgb, var(--accent-2) 18%, transparent);
+}
+.field.invalid input{
+  border-color:#e0566f;
+  box-shadow:0 0 0 3px color-mix(in srgb, #e0566f 16%, transparent);
+}
+.field-err{
+  display:none;font-size:12.5px;color:#ff8fa1;margin-top:6px;
+}
+.field.invalid .field-err{display:block;}
+.form-note{
+  font-size:12.5px;color:var(--ink-3);margin:12px 0 0;text-align:center;line-height:1.5;
+}
+[data-lead-submit].sending{opacity:.75;pointer-events:none;}
+
+/* ==== WHATSAPP ==== */
+.wa-float{
+  position:fixed;z-index:55;inset-inline-start:18px;bottom:20px;
+  width:56px;height:56px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(145deg,#25D366,#12a150);
+  color:#fff;text-decoration:none;
+  box-shadow:0 10px 30px -8px rgba(37,211,102,.55), inset 0 1px 0 rgba(255,255,255,.3);
+  transition:transform .3s var(--ease), box-shadow .3s var(--ease), bottom .45s var(--ease);
+  animation:wapulse 3.2s ease-out infinite;
+}
+.wa-float:hover{transform:scale(1.08) translateY(-2px);}
+@keyframes wapulse{
+  0%{box-shadow:0 10px 30px -8px rgba(37,211,102,.55), 0 0 0 0 rgba(37,211,102,.45);}
+  70%{box-shadow:0 10px 30px -8px rgba(37,211,102,.55), 0 0 0 16px rgba(37,211,102,0);}
+  100%{box-shadow:0 10px 30px -8px rgba(37,211,102,.55), 0 0 0 0 rgba(37,211,102,0);}
+}
+/* Lift clear of the sticky bar when it shows. The bar is ~76px on desktop
+   and ~89px on mobile, so these values are its height plus breathing room —
+   measured, not guessed. */
+body.sticky-on .wa-float{bottom:92px;}
+.wa-label{
+  position:absolute;inset-inline-start:66px;white-space:nowrap;
+  background:var(--bg-2);border:1px solid var(--line);
+  color:var(--ink-1);font-size:13px;font-weight:500;
+  padding:8px 13px;border-radius:10px;
+  opacity:0;transform:translateX(6px);pointer-events:none;
+  transition:opacity .3s var(--ease), transform .3s var(--ease);
+}
+.wa-float:hover .wa-label{opacity:1;transform:none;}
+/* inline whatsapp link inside copy */
+.wa-inline{
+  display:inline-flex;align-items:center;gap:7px;
+  color:#4ae08a;font-weight:600;text-decoration:none;
+  border-bottom:1px solid color-mix(in srgb,#4ae08a 45%,transparent);
+  min-height:44px;                 /* touch target inside a text paragraph */
+  padding-block:6px;
+}
+.wa-inline:hover{color:#6df0a5;}
+
+@media (max-width:860px){
+  .wa-float{width:52px;height:52px;inset-inline-start:14px;bottom:16px;}
+  body.sticky-on .wa-float{bottom:calc(104px + env(safe-area-inset-bottom));}
+  .wa-label{display:none;}
+}
+
 /* ==== EMBED SLOTS ==== */
 .embed-slot{
   border:1px dashed color-mix(in srgb, var(--accent-2) 45%, transparent);
@@ -1226,20 +1305,48 @@ footer a{color:var(--ink-2);}
         <div class="price-vat">+ מע״מ · תשלום חד-פעמי · לא ניתן לרכוש פעמיים לאותו עסק</div>
 
         <ul class="pay-flow">
-          <li><span class="pf-dot"></span> לוחצים על הכפתור ועוברים לעמוד הסליקה המאובטח של SUMIT</li>
-          <li><span class="pf-dot"></span> משלמים 99 ₪ + מע״מ — תשלום אחד, בלי מנוי</li>
-          <li><span class="pf-dot"></span> חוזרים אוטומטית לעמוד התודה, ומשבצים מועד ביומן</li>
+          <li><span class="pf-dot"></span> ממלאים פרטים — שם, מייל וטלפון</li>
+          <li><span class="pf-dot"></span> עוברים לעמוד הסליקה המאובטח של SUMIT ומשלמים 99 ₪ + מע״מ</li>
+          <li><span class="pf-dot"></span> חוזרים אוטומטית לעמוד התודה ומשבצים מועד ביומן</li>
         </ul>
 
-        <!-- SUMIT hosted checkout.
-             חשוב: בהגדרות המוצר ב-SUMIT צריך להגדיר "עמוד תודה / הצלחה"
-             לכתובת המלאה של thank-you.html באתר שלכם, אחרת הלקוח יישאר
-             בעמוד של SUMIT ולא יגיע לשיבוץ ביומן. -->
-        <a href="https://pay.sumit.co.il/46yyg4/sj73bz/c/payment/?cartid=7aa9c6e4-de3c-4fb3-bd37-079b7713f7c3"
-           class="btn btn-primary btn-block btn-lg" data-sumit-cta rel="noopener">
-          לתשלום מאובטח — 99 ₪
-          <svg class="arr" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
-        </a>
+        <!-- ============================================================
+             טופס לידים → הפניה לסליקה.
+             הפרטים נשלחים ל-LEAD_ENDPOINT (מוגדר בראש הסקריפט למטה),
+             ומיד אחר כך הגולש מועבר לעמוד התשלום של SUMIT.
+             אם LEAD_ENDPOINT ריק — הטופס עדיין מעביר לתשלום, אבל
+             הליד לא נשמר בשום מקום.
+             ============================================================ -->
+        <form class="lead-form" data-lead-form novalidate>
+          <div class="field">
+            <label for="lf-name">שם מלא</label>
+            <input id="lf-name" name="name" type="text" autocomplete="name"
+                   inputmode="text" placeholder="ישראל ישראלי" required>
+            <span class="field-err" data-err-for="name"></span>
+          </div>
+          <div class="field">
+            <label for="lf-email">אימייל</label>
+            <input id="lf-email" name="email" type="email" autocomplete="email"
+                   inputmode="email" dir="ltr" placeholder="you@example.com" required>
+            <span class="field-err" data-err-for="email"></span>
+          </div>
+          <div class="field">
+            <label for="lf-phone">טלפון נייד</label>
+            <input id="lf-phone" name="phone" type="tel" autocomplete="tel"
+                   inputmode="tel" dir="ltr" placeholder="050-0000000" required>
+            <span class="field-err" data-err-for="phone"></span>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block btn-lg" data-lead-submit>
+            <span class="btn-label">להמשך לתשלום מאובטח — 99 ₪</span>
+            <svg class="arr" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+          </button>
+          <p class="form-note">
+            בשליחת הפרטים אני מאשר/ת שתיצרו איתי קשר בנוגע לשירות.
+            <!-- [PLACEHOLDER: להוסיף כאן קישור למדיניות פרטיות] -->
+          </p>
+        </form>
+
         <div class="secure-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg> החיוב מאובטח ומתבצע דרך מערכת הסליקה SUMIT</div>
       </div>
 
@@ -1314,11 +1421,11 @@ footer a{color:var(--ink-2);}
       </div>
       <div class="faq-item">
         <button class="faq-q"><span>כמה זמן לוקח מהתשלום ועד שהקבצים אצלי?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></button>
-        <div class="faq-a"><div class="faq-a-inner">[PLACEHOLDER: למלא לוח זמנים מדויק — למשל: תוך X ימי עסקים מהראיון תקבלו את הקובץ הגולמי במייל / בקישור להורדה]</div></div>
+        <div class="faq-a"><div class="faq-a-inner">אנחנו מצלמים בימים <strong style="color:var(--ink-0)">ראשון עד חמישי, 10:00–20:00</strong>, ובימי <strong style="color:var(--ink-0)">שישי 10:00–13:00</strong>. הכול לפי הזמינות שתראו ביומן בעמוד התודה — ובתקופת חגים ייתכנו שינויים בשעות, שיופיעו שם בזמן אמת.</div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q"><span>יש החזר כספי?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></button>
-        <div class="faq-a"><div class="faq-a-inner">אין, ונגיד את זה ישר במקום להסתיר באותיות קטנות. המחיר נמוך בכוונה, ואין "ביטוח" על 99 שקל. מה שיש זה שקיפות מלאה על כל מה שאתה מקבל — לפני שאתה משלם. יש לך שאלה לפני הרכישה? נשמח לענות: [PLACEHOLDER: פרטי יצירת קשר].</div></div>
+        <div class="faq-a"><div class="faq-a-inner">אין, ונגיד את זה ישר במקום להסתיר באותיות קטנות. המחיר נמוך בכוונה, ואין "ביטוח" על 99 שקל. מה שיש זה שקיפות מלאה על כל מה שאתה מקבל — לפני שאתה משלם. יש לך שאלה לפני הרכישה? <a class="wa-inline" href="https://wa.me/972552803175" target="_blank" rel="noopener"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm0 18.15a8.2 8.2 0 0 1-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 4.54 0 8.24 3.7 8.24 8.24 0 4.54-3.7 8.24-8.24 8.24z"/></svg>דברו איתנו בוואטסאפ</a> — עונים מהר.</div></div>
       </div>
     </div>
   </div>
@@ -1356,10 +1463,106 @@ footer a{color:var(--ink-2);}
   <a href="#payment" class="btn btn-primary">שריין מקום</a>
 </div>
 
+<!-- WhatsApp — 055-280-3175 -->
+<a class="wa-float" href="https://wa.me/972552803175?text=%D7%94%D7%99%D7%99%2C%20%D7%99%D7%A9%20%D7%9C%D7%99%20%D7%A9%D7%90%D7%9C%D7%94%20%D7%A2%D7%9C%20%D7%94%D7%9E%D7%91%D7%A6%D7%A2%20%D7%A9%D7%9C%203%20%D7%AA%D7%9B%D7%A0%D7%99%D7%9D%20%D7%91-99%20%E2%82%AA"
+   target="_blank" rel="noopener" aria-label="שליחת הודעת וואטסאפ — יש לי שאלה">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.29-.77.95-.94 1.15-.17.2-.35.22-.64.08-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.04-.17-.3-.02-.46.13-.6.13-.13.3-.35.44-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.6-.92-2.2-.24-.57-.48-.5-.67-.5h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.01-1.04 2.47s1.07 2.86 1.22 3.06c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.23 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35z"/><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23z"/></svg>
+  <span class="wa-label">יש שאלה? דברו איתנו</span>
+</a>
+
 <script>
 (function(){
   'use strict';
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* =========================================================
+     ⚙️  הגדרות — לערוך כאן
+     ========================================================= */
+  var SUMIT_URL = 'https://pay.sumit.co.il/46yyg4/sj73bz/c/payment/?cartid=7aa9c6e4-de3c-4fb3-bd37-079b7713f7c3';
+
+  /* כתובת ה-webhook שאליה נשלחים הלידים (GoHighLevel / Zapier / Make).
+     כל עוד זה ריק — הטופס עדיין מעביר לתשלום, אבל הליד לא נשמר בשום מקום. */
+  var LEAD_ENDPOINT = '';
+
+  /* =========================================================
+     LEAD FORM → תשלום
+     ========================================================= */
+  (function initLeadForm(){
+    var form = document.querySelector('[data-lead-form]');
+    if(!form) return;
+    var btn = form.querySelector('[data-lead-submit]');
+    var label = btn.querySelector('.btn-label');
+
+    function setErr(name, msg){
+      var input = form.querySelector('[name="'+name+'"]');
+      var field = input.closest('.field');
+      var err = field.querySelector('.field-err');
+      if(msg){ field.classList.add('invalid'); err.textContent = msg; input.setAttribute('aria-invalid','true'); }
+      else   { field.classList.remove('invalid'); err.textContent = ''; input.removeAttribute('aria-invalid'); }
+      return !msg;
+    }
+
+    /* ישראלי: 05X ואחריו 7 ספרות. מתעלם מרווחים, מקפים וסוגריים,
+       ומקבל גם +972 / 972 בתחילת המספר. */
+    function normalisePhone(raw){
+      var d = (raw||'').replace(/[\s\-().]/g,'');
+      if(d.indexOf('+972')===0) d = '0'+d.slice(4);
+      else if(d.indexOf('972')===0) d = '0'+d.slice(3);
+      return d;
+    }
+    function validPhone(raw){ return /^05\d{8}$/.test(normalisePhone(raw)); }
+    function validEmail(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test((v||'').trim()); }
+
+    ['name','email','phone'].forEach(function(n){
+      var el = form.querySelector('[name="'+n+'"]');
+      el.addEventListener('input', function(){
+        if(el.closest('.field').classList.contains('invalid')) setErr(n, '');
+      });
+    });
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+
+      var name  = form.name.value.trim();
+      var email = form.email.value.trim();
+      var phone = form.phone.value.trim();
+
+      var ok = true;
+      ok = setErr('name',  name.length  >= 2  ? '' : 'נא למלא שם מלא')            && ok;
+      ok = setErr('email', validEmail(email)  ? '' : 'כתובת מייל לא תקינה')       && ok;
+      ok = setErr('phone', validPhone(phone)  ? '' : 'מספר נייד לא תקין (05X-XXXXXXX)') && ok;
+      if(!ok){
+        form.querySelector('.field.invalid input').focus();
+        return;
+      }
+
+      btn.classList.add('sending');
+      if(label) label.textContent = 'מעביר לתשלום…';
+
+      var payload = {
+        name: name,
+        email: email,
+        phone: normalisePhone(phone),
+        source: 'landing-3-contents-99',
+        page: location.href,
+        submitted_at: new Date().toISOString()
+      };
+
+      /* keepalive מאפשר לבקשה להסתיים גם אחרי שהדף כבר מתחלף */
+      if(LEAD_ENDPOINT){
+        try{
+          fetch(LEAD_ENDPOINT, {
+            method:'POST', mode:'no-cors', keepalive:true,
+            headers:{'Content-Type':'application/json'},
+            body: JSON.stringify(payload)
+          }).catch(function(){});
+        }catch(err){}
+      }
+
+      /* לא תולים את המכירה בהצלחת ה-webhook — מעבירים לתשלום בכל מקרה */
+      setTimeout(function(){ window.location.href = SUMIT_URL; }, 350);
+    });
+  })();
 
   /* ---------- year ---------- */
   var y = document.querySelector('[data-year]');
@@ -1637,7 +1840,12 @@ footer a{color:var(--ink-2);}
   var hero = document.querySelector('.hero');
   if(sticky && hero && 'IntersectionObserver' in window){
     new IntersectionObserver(function(entries){
-      entries.forEach(function(e){ sticky.classList.toggle('show', !e.isIntersecting); });
+      entries.forEach(function(e){
+        var on = !e.isIntersecting;
+        sticky.classList.toggle('show', on);
+        /* lets the WhatsApp bubble rise above the bar instead of sitting under it */
+        document.body.classList.toggle('sticky-on', on);
+      });
     }, {threshold:0}).observe(hero);
   }
 
