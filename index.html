@@ -688,6 +688,71 @@ section.live .sec-glow{opacity:1;}
   box-shadow:0 0 0 3px color-mix(in srgb, var(--accent-2) 18%, transparent);
 }
 
+/* ==== AVAILABILITY PREVIEW ==== */
+.avail-wrap{max-width:760px;margin:0 auto;}
+.avail-frame{
+  position:relative;border-radius:18px;overflow:hidden;
+  border:1px solid transparent;
+  background:
+    linear-gradient(var(--bg-2), var(--bg-2)) padding-box,
+    linear-gradient(150deg, color-mix(in srgb, var(--accent-2) 50%, transparent), var(--line) 45%, color-mix(in srgb, var(--accent) 35%, transparent)) border-box;
+  padding:10px;
+}
+.avail-frame .inner{
+  position:relative;border-radius:12px;overflow:hidden;background:#fff;
+}
+.avail-frame iframe{display:block;width:100%;border:0;min-height:620px;}
+/* Browse-only shield: the calendar is here to SHOW open dates, not to take a
+   free booking. Clicks are swallowed; wheel/touch scrolling still passes
+   through to the page so the section never traps the scroll. */
+.avail-shield{
+  position:absolute;inset:0;z-index:2;cursor:default;
+  background:transparent;
+}
+.avail-badge{
+  position:absolute;top:14px;inset-inline-start:14px;z-index:3;
+  display:inline-flex;align-items:center;gap:7px;
+  font-size:12px;font-weight:700;color:var(--ink-0);
+  background:color-mix(in srgb, var(--bg-0) 82%, transparent);
+  border:1px solid color-mix(in srgb, var(--accent-2) 45%, transparent);
+  backdrop-filter:blur(6px);
+  padding:7px 12px;border-radius:9px;
+}
+.avail-badge .dot{
+  width:7px;height:7px;border-radius:50%;background:var(--accent-2);
+  animation:pulse 1.8s ease-out infinite;
+}
+.avail-cta{
+  display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:26px;
+}
+.avail-note{
+  font-size:14px;color:var(--ink-3);text-align:center;max-width:520px;margin:0 auto;
+}
+.avail-steps{
+  display:flex;justify-content:center;flex-wrap:wrap;gap:10px 8px;margin:0 0 30px;
+}
+.avail-step{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:13.5px;color:var(--ink-2);
+  background:color-mix(in srgb, var(--bg-2) 70%, transparent);
+  border:1px solid var(--line);border-radius:999px;padding:8px 14px;
+}
+.avail-step b{
+  width:20px;height:20px;border-radius:50%;flex:none;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg, var(--accent-2), var(--accent));
+  color:#1a0d2b;font-size:11px;font-weight:900;
+}
+.avail-step.is-now{
+  border-color:color-mix(in srgb, var(--accent-2) 55%, transparent);
+  color:var(--ink-0);
+}
+@media (max-width:600px){
+  .avail-frame iframe{min-height:560px;}
+  .avail-steps{gap:8px 6px;}
+  .avail-step{font-size:12.5px;padding:7px 11px;}
+}
+
 /* ==== LEAD FORM ==== */
 .lead-form{margin:0 0 6px;}
 .field{margin-bottom:15px;}
@@ -716,6 +781,10 @@ section.live .sec-glow{opacity:1;}
   display:none;font-size:12.5px;color:#ff8fa1;margin-top:6px;
 }
 .field.invalid .field-err{display:block;}
+.field .opt{color:var(--ink-3);font-weight:400;}
+.field-hint{display:block;font-size:12px;color:var(--ink-3);margin-top:6px;line-height:1.5;}
+/* the native date control renders dark-on-dark in some browsers */
+input[type="date"]{color-scheme:dark;}
 .form-note{
   font-size:12.5px;color:var(--ink-3);margin:12px 0 0;text-align:center;line-height:1.5;
 }
@@ -1288,6 +1357,50 @@ footer a{color:var(--ink-2);}
 
 <hr class="divider">
 
+<!-- ===================== AVAILABILITY PREVIEW ===================== -->
+<section id="availability" data-accent="#b14aed" data-accent-2="#d68bff">
+  <div class="sec-glow" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>קודם תבדקו שיש תאריך שמתאים לכם</h2>
+      <p>אין טעם לשלם לפני שראיתם שיש מועד שנוח לכם. זה היומן האמיתי שלנו — מה שפתוח כאן, פתוח.</p>
+    </div>
+
+    <div class="avail-steps reveal">
+      <span class="avail-step is-now"><b>1</b> בודקים תאריך</span>
+      <span class="avail-step"><b>2</b> משאירים פרטים ומשלמים</span>
+      <span class="avail-step"><b>3</b> משריינים את המועד</span>
+    </div>
+
+    <div class="avail-wrap reveal">
+      <div class="avail-frame">
+        <div class="inner">
+          <span class="avail-badge"><span class="dot"></span> תצוגת זמינות</span>
+          <!-- Same calendar as the thank-you page, in browse-only mode.
+               The shield above it prevents an actual (unpaid) booking here —
+               the real reservation happens on thank-you.html after payment. -->
+          <div class="avail-shield" data-avail-shield aria-hidden="true"></div>
+          <iframe
+            src="https://api.leadconnectorhq.com/widget/booking/r9CJ42nLwFUvz6wbEpQg"
+            title="בדיקת זמינות ביומן"
+            scrolling="no" loading="lazy"
+            id="avail_r9CJ42nLwFUvz6wbEpQg"></iframe>
+        </div>
+      </div>
+
+      <div class="avail-cta">
+        <p class="avail-note">מצאתם מועד שמתאים? המשיכו לפרטים ולתשלום — ומיד אחרי כן תשריינו אותו בפועל.</p>
+        <a href="#payment" class="btn btn-primary btn-lg">
+          יש לי תאריך — ממשיך לשריין
+          <svg class="arr" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
 <!-- ===================== PAYMENT ===================== -->
 <section id="payment" data-accent="#a855f7" data-accent-2="#d0a0ff">
   <div class="sec-glow" aria-hidden="true"></div>
@@ -1335,6 +1448,11 @@ footer a{color:var(--ink-2);}
             <input id="lf-phone" name="phone" type="tel" autocomplete="tel"
                    inputmode="tel" dir="ltr" placeholder="050-0000000" required>
             <span class="field-err" data-err-for="phone"></span>
+          </div>
+          <div class="field">
+            <label for="lf-date">תאריך מועדף <span class="opt">(לא חובה)</span></label>
+            <input id="lf-date" name="preferred_date" type="date" dir="ltr">
+            <span class="field-hint">בדקתם ביומן למעלה? רשמו כאן מה מתאים לכם, ונשמור את זה לצידכם.</span>
           </div>
 
           <button type="submit" class="btn btn-primary btn-block btn-lg" data-lead-submit>
@@ -1539,14 +1657,26 @@ footer a{color:var(--ink-2);}
       btn.classList.add('sending');
       if(label) label.textContent = 'מעביר לתשלום…';
 
+      var preferred = form.preferred_date ? form.preferred_date.value : '';
+
       var payload = {
         name: name,
         email: email,
         phone: normalisePhone(phone),
+        preferred_date: preferred,
         source: 'landing-3-contents-99',
         page: location.href,
         submitted_at: new Date().toISOString()
       };
+
+      /* Hand the details to thank-you.html so it can greet them by name and
+         remind them which date they asked for. sessionStorage survives the
+         round-trip through SUMIT as long as it is the same tab. */
+      try{
+        sessionStorage.setItem('vm_lead', JSON.stringify({
+          name: name, preferred_date: preferred
+        }));
+      }catch(err){}
 
       /* keepalive מאפשר לבקשה להסתיים גם אחרי שהדף כבר מתחלף */
       if(LEAD_ENDPOINT){
@@ -1848,6 +1978,22 @@ footer a{color:var(--ink-2);}
       });
     }, {threshold:0}).observe(hero);
   }
+
+  /* =========================================================
+     AVAILABILITY SHIELD — swallow clicks so nobody books a slot
+     here without paying, while leaving scrolling untouched.
+     ========================================================= */
+  (function(){
+    var shield = document.querySelector('[data-avail-shield]');
+    if(!shield) return;
+    ['click','mousedown','mouseup','touchstart','touchend'].forEach(function(evt){
+      shield.addEventListener(evt, function(e){
+        e.preventDefault(); e.stopPropagation();
+        var cta = document.querySelector('#payment');
+        if(evt === 'click' && cta) cta.scrollIntoView({behavior:'smooth', block:'start'});
+      }, {passive:false});
+    });
+  })();
 
   /* first paint */
   requestTick();
