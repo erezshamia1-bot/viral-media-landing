@@ -1,0 +1,18 @@
+# local dev helpers (not part of the published site)
+.claude/
+
+# OS junk
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# editor
+.vscode/
+.idea/
+
+# never commit these
+*.env
+.env*
+*.pem
+*.key
+node_modules/

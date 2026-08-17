@@ -1,0 +1,1577 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>3 תכנים שיווקיים ב-99 ₪ | רק ל-10 בעלי עסקים</title>
+<meta name="description" content="20 דקות מול מראיין מקצועי, ואתה יוצא עם 3 תכנים שיווקיים בקול שלך. בלי תסריט, בלי ציוד, בלי קורס. 99 ₪ + מע״מ, רק ל-10 בעלי עסקים.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   ANIMATED ACCENT SYSTEM
+   --accent / --accent-2 are registered so they can be *transitioned*.
+   The AccentSync script swaps them per section → the whole page
+   (glows, borders, buttons, auroras) drifts colour as you scroll.
+   ============================================================ */
+@property --accent{syntax:'<color>';inherits:true;initial-value:#9d4edd;}
+@property --accent-2{syntax:'<color>';inherits:true;initial-value:#c77dff;}
+
+:root{
+  /* layered near-black — never #000 */
+  --bg-0:#0a0714;
+  --bg-1:#120c1f;
+  --bg-2:#191228;
+  --bg-3:#241a38;
+  --ink-0:#f7f5fb;
+  --ink-1:#e6e1ef;
+  --ink-2:#b6aec8;
+  --ink-3:#87809c;
+
+  --accent:#9d4edd;
+  --accent-2:#c77dff;
+  --accent-soft:color-mix(in srgb, var(--accent) 18%, transparent);
+  --accent-glow:color-mix(in srgb, var(--accent) 55%, transparent);
+  --line:color-mix(in srgb, var(--ink-0) 10%, transparent);
+
+  --radius:18px;
+  --maxw:1160px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+
+  transition:--accent 1.1s var(--ease), --accent-2 1.1s var(--ease);
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;overflow-x:clip;}
+body{
+  margin:0;
+  background:var(--bg-0);
+  color:var(--ink-1);
+  font-family:'Heebo',system-ui,sans-serif;
+  font-weight:300;
+  font-size:17px;
+  line-height:1.65;
+  overflow-x:clip;
+  -webkit-font-smoothing:antialiased;
+  position:relative;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;}
+h1,h2,h3{font-weight:900;color:var(--ink-0);margin:0 0 .5em;letter-spacing:-.01em;}
+p{margin:0 0 1em;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+section{position:relative;padding:96px 0;z-index:1;}
+.section-tight{padding:64px 0;}
+
+/* ============================================================
+   LIVING BACKGROUND — 4 layers
+   1. aurora (fixed, always drifting)  2. per-section glow
+   3. grid  4. noise
+   ============================================================ */
+.aurora{
+  position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;
+  contain:strict;
+}
+.blob{
+  position:absolute;border-radius:50%;
+  filter:blur(70px);
+  will-change:transform;
+}
+.blob.b1{
+  width:52vw;height:52vw;top:-12%;right:-8%;
+  background:radial-gradient(circle, color-mix(in srgb, var(--accent) 62%, transparent), transparent 68%);
+  opacity:.42;
+  animation:drift1 26s ease-in-out infinite;
+}
+.blob.b2{
+  width:46vw;height:46vw;bottom:-14%;left:-10%;
+  background:radial-gradient(circle, color-mix(in srgb, var(--accent-2) 52%, transparent), transparent 68%);
+  opacity:.34;
+  animation:drift2 34s ease-in-out infinite;
+}
+.blob.b3{
+  width:38vw;height:38vw;top:38%;left:32%;
+  background:radial-gradient(circle, color-mix(in srgb, var(--accent-2) 40%, transparent), transparent 70%);
+  opacity:.26;
+  animation:drift3 44s ease-in-out infinite;
+}
+@keyframes drift1{
+  0%,100%{transform:translate3d(0,0,0) scale(1);}
+  33%{transform:translate3d(-6vw,7vh,0) scale(1.14);}
+  66%{transform:translate3d(4vw,-5vh,0) scale(.92);}
+}
+@keyframes drift2{
+  0%,100%{transform:translate3d(0,0,0) scale(1);}
+  40%{transform:translate3d(8vw,-8vh,0) scale(1.18);}
+  70%{transform:translate3d(-3vw,4vh,0) scale(.95);}
+}
+@keyframes drift3{
+  0%,100%{transform:translate3d(0,0,0) scale(1);}
+  50%{transform:translate3d(-10vw,-6vh,0) scale(1.25);}
+}
+
+.page-bg{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:clip;}
+.atmo-grid{
+  position:absolute;top:0;right:0;left:0;height:1600px;pointer-events:none;
+  background-image:
+    linear-gradient(color-mix(in srgb, var(--ink-0) 4%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--ink-0) 4%, transparent) 1px, transparent 1px);
+  background-size:64px 64px;
+  mask-image:radial-gradient(ellipse 80% 60% at 50% 0%, black 30%, transparent 75%);
+  animation:gridpan 60s linear infinite;
+}
+@keyframes gridpan{to{background-position:64px 64px, 64px 64px;}}
+.atmo-noise{
+  position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.045;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+.page-content{position:relative;z-index:1;}
+
+/* per-section breathing glow — fades in as the section takes over */
+.sec-glow{
+  position:absolute;top:50%;left:50%;translate:-50% -50%;
+  width:120%;height:90%;pointer-events:none;z-index:-1;
+  background:radial-gradient(ellipse 50% 50% at 50% 50%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 70%);
+  opacity:0;transition:opacity 1.2s var(--ease);
+}
+section.live .sec-glow{opacity:1;}
+
+/* scroll progress bar */
+.progress{
+  position:fixed;top:0;right:0;left:0;height:3px;z-index:60;pointer-events:none;
+  background:linear-gradient(90deg, var(--accent), var(--accent-2));
+  transform:scaleX(0);transform-origin:right center;
+  will-change:transform;
+}
+
+/* desktop cursor glow */
+.cursor-glow{
+  position:fixed;top:0;left:0;width:520px;height:520px;z-index:0;pointer-events:none;
+  margin:-260px 0 0 -260px;border-radius:50%;
+  background:radial-gradient(circle, color-mix(in srgb, var(--accent-2) 13%, transparent), transparent 62%);
+  opacity:0;transition:opacity .5s var(--ease);
+  will-change:transform;
+}
+
+/* ============================================================
+   PRIMITIVES
+   ============================================================ */
+.rec-dot{
+  display:inline-block;width:9px;height:9px;border-radius:50%;
+  background:var(--accent-2);margin-inline-end:8px;flex:none;
+  animation:pulse 1.8s ease-out infinite;
+}
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 color-mix(in srgb, var(--accent-2) 60%, transparent);}
+  70%{box-shadow:0 0 0 11px transparent;}
+  100%{box-shadow:0 0 0 0 transparent;}
+}
+.eyebrow{
+  display:inline-flex;align-items:center;
+  font-size:14px;font-weight:500;color:var(--ink-2);
+  background:color-mix(in srgb, var(--bg-2) 80%, transparent);
+  border:1px solid var(--line);backdrop-filter:blur(6px);
+  padding:7px 15px;border-radius:999px;margin-bottom:22px;
+  box-shadow:0 8px 30px -14px var(--accent-glow);
+}
+.eyebrow b{color:var(--accent-2);font-weight:700;margin-inline:4px;}
+
+/* seam divider — animated shimmer travelling along the line */
+.divider{
+  position:relative;border:0;height:1px;margin:0;overflow:visible;
+  background:linear-gradient(90deg, transparent, var(--line) 20%, var(--line) 80%, transparent);
+}
+.divider::before{
+  content:'';position:absolute;top:0;right:0;height:1px;width:32%;
+  background:linear-gradient(90deg, transparent, color-mix(in srgb, var(--accent-2) 85%, transparent), transparent);
+  animation:seam 7s var(--ease) infinite;
+}
+@keyframes seam{
+  0%{transform:translateX(60%);opacity:0;}
+  25%{opacity:1;}
+  75%{opacity:1;}
+  100%{transform:translateX(-260%);opacity:0;}
+}
+.divider::after{
+  content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:7px;height:7px;border-radius:50%;
+  background:var(--accent-2);
+  box-shadow:0 0 0 4px var(--bg-0), 0 0 24px 5px color-mix(in srgb, var(--accent-2) 70%, transparent);
+}
+
+.grad-text{
+  background-image:linear-gradient(100deg, var(--accent-2), color-mix(in srgb, var(--accent-2) 55%, #fff 15%) 35%, var(--accent) 70%, var(--accent-2));
+  background-size:220% auto;
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  animation:gradshift 7s ease-in-out infinite;
+}
+@keyframes gradshift{
+  0%,100%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+}
+
+/* buttons */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  font-family:inherit;font-weight:700;font-size:17px;
+  padding:18px 32px;border-radius:14px;border:none;cursor:pointer;
+  text-decoration:none;min-height:52px;position:relative;overflow:hidden;isolation:isolate;
+  transition:transform .3s var(--ease), box-shadow .3s var(--ease), filter .3s var(--ease);
+}
+.btn-primary{
+  background:linear-gradient(135deg, var(--accent-2), color-mix(in srgb, var(--accent-2) 60%, var(--accent)));
+  color:#1a0d2b;
+  box-shadow:0 14px 38px -10px color-mix(in srgb, var(--accent-2) 72%, transparent), inset 0 1px 0 color-mix(in srgb, #fff 38%, transparent);
+  animation:btnbreath 3.6s ease-in-out infinite;
+}
+@keyframes btnbreath{
+  0%,100%{box-shadow:0 14px 38px -10px color-mix(in srgb, var(--accent-2) 60%, transparent), inset 0 1px 0 color-mix(in srgb, #fff 38%, transparent);}
+  50%{box-shadow:0 18px 52px -10px color-mix(in srgb, var(--accent-2) 92%, transparent), inset 0 1px 0 color-mix(in srgb, #fff 38%, transparent);}
+}
+/* travelling sheen */
+.btn-primary::before{
+  content:'';position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(115deg, transparent 30%, color-mix(in srgb, #fff 58%, transparent) 48%, transparent 66%);
+  background-size:220% 100%;background-position:150% 0;
+  animation:sheen 4.5s var(--ease) infinite;
+}
+@keyframes sheen{
+  0%{background-position:150% 0;}
+  55%,100%{background-position:-60% 0;}
+}
+.btn-primary:hover{transform:translateY(-3px);filter:brightness(1.06);}
+.btn-ghost{background:transparent;border:1px solid var(--line);color:var(--ink-0);}
+.btn-ghost:hover{border-color:color-mix(in srgb, var(--accent-2) 55%, var(--line));transform:translateY(-2px);}
+.btn-block{width:100%;}
+.btn-lg{padding:21px 36px;font-size:19px;}
+.btn .arr{transition:transform .3s var(--ease);}
+.btn:hover .arr{transform:translateX(-4px);}
+
+.grad-border{
+  border:1px solid transparent;
+  background:
+    linear-gradient(var(--bg-2), var(--bg-2)) padding-box,
+    linear-gradient(150deg, color-mix(in srgb, var(--accent-2) 58%, transparent), var(--line) 42%, color-mix(in srgb, var(--accent) 38%, transparent)) border-box;
+}
+
+[data-ghost]{position:relative;z-index:0;}
+[data-ghost]::before{
+  content:attr(data-ghost);
+  position:absolute;top:-6px;inset-inline-end:12px;z-index:-1;
+  font-size:82px;font-weight:900;line-height:1;
+  color:transparent;-webkit-text-stroke:1px color-mix(in srgb, var(--ink-0) 11%, transparent);
+  opacity:.55;pointer-events:none;
+}
+
+.icon-tile{
+  width:42px;height:42px;border-radius:12px;flex:none;
+  display:flex;align-items:center;justify-content:center;
+  background:color-mix(in srgb, var(--accent) 14%, var(--bg-3));
+  border:1px solid color-mix(in srgb, var(--accent-2) 26%, transparent);
+  color:var(--accent-2);
+}
+
+/* ambient floating particles */
+.particle{
+  position:absolute;border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle, var(--accent-2), transparent 70%);
+  opacity:.55;filter:blur(.5px);
+  animation:floaty linear infinite;
+}
+@keyframes floaty{
+  0%{transform:translate3d(0,0,0);}
+  50%{transform:translate3d(9px,-26px,0);}
+  100%{transform:translate3d(0,0,0);}
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{padding-top:104px;padding-bottom:70px;text-align:center;}
+.hero h1{
+  font-size:clamp(31px, 5.2vw, 60px);
+  line-height:1.12;
+  max-width:min(1180px, 94vw);
+  margin-inline:auto;
+}
+/* .hl alone = flat accent. When it also carries .grad-text, let the gradient
+   win — otherwise this rule's higher specificity kills `color:transparent`
+   and the shimmer never renders. */
+.hero h1 .hl:not(.grad-text){color:var(--accent-2);}
+/* word-by-word entrance */
+.w{display:inline-block;opacity:0;transform:translateY(26px) rotate(2deg);
+  animation:wordin .85s var(--ease) forwards;}
+@keyframes wordin{to{opacity:1;transform:none;}}
+.hero-sub{
+  max-width:700px;margin:24px auto 34px;
+  font-size:19px;color:var(--ink-2);font-weight:400;
+  opacity:0;animation:wordin .9s var(--ease) .55s forwards;
+}
+.hero-sub b{color:var(--ink-0);font-weight:700;}
+.hero-cta-row{
+  display:flex;flex-direction:column;align-items:center;gap:14px;
+  opacity:0;animation:wordin .9s var(--ease) .72s forwards;
+}
+.cta-note{font-size:13.5px;color:var(--ink-3);}
+.trust-bar{
+  display:flex;flex-wrap:wrap;justify-content:center;gap:10px 24px;
+  margin-top:36px;font-size:14px;color:var(--ink-3);
+  opacity:0;animation:wordin .9s var(--ease) .86s forwards;
+}
+.trust-bar span{display:flex;align-items:center;gap:6px;}
+
+/* --- HERO STAGE: floating reel orbit + centre video facade --- */
+.hero-stage{
+  position:relative;margin:66px auto 0;max-width:1080px;
+  min-height:clamp(300px, 46vw, 470px);
+  display:flex;align-items:center;justify-content:center;
+}
+.hero-visual{
+  position:relative;width:min(660px, 88%);border-radius:24px;overflow:hidden;
+  border:1px solid var(--line);background:var(--bg-2);aspect-ratio:16/9;
+  box-shadow:0 40px 100px -26px rgba(0,0,0,.75), 0 0 70px -30px var(--accent-glow);
+  z-index:3;
+}
+/* real studio photo behind the play facade — slow ken-burns drift */
+.hero-media{
+  position:absolute;inset:0;
+  background-image:url('images/studio-hero.jpg');
+  background-size:cover;background-position:center 62%;
+  transform:scale(1.06);
+  animation:kenburns 26s ease-in-out infinite;
+}
+@keyframes kenburns{
+  0%,100%{transform:scale(1.06) translate3d(0,0,0);}
+  50%{transform:scale(1.14) translate3d(-1.5%,-1.5%,0);}
+}
+.hero-visual .play{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  background:
+    linear-gradient(0deg, color-mix(in srgb, var(--bg-0) 78%, transparent), color-mix(in srgb, var(--bg-0) 22%, transparent)),
+    radial-gradient(circle at 50% 40%, color-mix(in srgb, var(--accent) 30%, transparent), transparent 62%),
+    radial-gradient(circle at 15% 92%, color-mix(in srgb, var(--accent-2) 18%, transparent), transparent 56%);
+}
+.play-ring{
+  position:absolute;width:124px;height:124px;border-radius:50%;
+  border:1px dashed color-mix(in srgb, var(--accent-2) 48%, transparent);
+  animation:spin 18s linear infinite;
+}
+.play-ring.r2{width:168px;height:168px;border-style:solid;
+  border-color:color-mix(in srgb, var(--accent-2) 16%, transparent);
+  animation:spin 30s linear infinite reverse;}
+@keyframes spin{to{transform:rotate(360deg);}}
+.play-btn{
+  width:80px;height:80px;border-radius:50%;position:relative;
+  background:color-mix(in srgb, var(--bg-0) 55%, transparent);
+  border:1.5px solid color-mix(in srgb, var(--ink-0) 26%, transparent);
+  display:flex;align-items:center;justify-content:center;backdrop-filter:blur(6px);
+  animation:ringpulse 2.6s ease-out infinite;
+}
+@keyframes ringpulse{
+  0%{box-shadow:0 0 0 0 color-mix(in srgb, var(--accent-2) 45%, transparent);}
+  70%{box-shadow:0 0 0 22px transparent;}
+  100%{box-shadow:0 0 0 0 transparent;}
+}
+.ph-label{
+  position:absolute;bottom:14px;right:14px;left:14px;
+  font-size:12px;color:var(--ink-3);text-align:center;
+}
+
+/* orbiting reels around the hero */
+.orbit{position:absolute;inset:0;pointer-events:none;z-index:2;}
+.orbit .reel{
+  position:absolute;width:clamp(84px, 11vw, 138px);
+  will-change:transform;
+}
+.orbit .o1{top:2%;  right:1%;}
+.orbit .o2{bottom:4%;right:7%;}
+.orbit .o3{top:6%;   left:2%;}
+.orbit .o4{bottom:2%;left:8%;}
+.orbit .o5{top:44%;  right:-2%;}
+
+/* ============================================================
+   REEL CARD — the photo-sequence unit.
+   Drop a real image by setting --img on the figure:
+   <figure class="reel" style="--img:url('images/reel-1.jpg')">
+   ============================================================ */
+.reel{
+  position:relative;aspect-ratio:9/16;border-radius:18px;overflow:hidden;
+  border:1px solid color-mix(in srgb, var(--accent-2) 22%, var(--line));
+  background:
+    linear-gradient(160deg, color-mix(in srgb, var(--accent) 22%, var(--bg-2)), var(--bg-1) 60%, color-mix(in srgb, var(--accent-2) 12%, var(--bg-2)));
+  box-shadow:0 24px 54px -20px rgba(0,0,0,.8), 0 0 40px -28px var(--accent-glow);
+  margin:0;flex:none;
+}
+.reel-media{
+  position:absolute;inset:0;
+  background-image:var(--img, none);
+  background-size:cover;
+  /* --pos anchors the crop on the face. Every interview frame is WIDER than
+     the 9:16 reel, so cover shows full height and trims the sides — which
+     makes the horizontal value the one that actually frames the face. */
+  background-position:var(--pos, center);
+}
+/* photo-backed reels: keep them in the dark-premium key so they sit inside
+   the palette instead of punching bright holes through it */
+.reel.has-img .reel-media{
+  filter:saturate(1.05) contrast(1.02);
+}
+/* Object/studio shots can take a heavy vignette. Faces cannot — it muddies
+   skin tones — so the people frames get a lighter, bottom-weighted wash that
+   still ties them to the palette while leaving the face clean. */
+.reel.has-img::before{
+  content:'';position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:
+    linear-gradient(0deg, color-mix(in srgb, var(--bg-0) 55%, transparent), transparent 46%),
+    radial-gradient(ellipse 96% 76% at 50% 38%, transparent 52%, color-mix(in srgb, var(--bg-0) 34%, transparent));
+}
+.river-row .reel.has-img .reel-media{
+  filter:saturate(1.02) contrast(1.01) brightness(1.03);
+}
+.reel.has-img .reel-tag{z-index:2;}
+.reel::after{ /* screen sheen */
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(150deg, color-mix(in srgb, #fff 12%, transparent), transparent 42%);
+}
+.reel-body{
+  position:absolute;inset:0;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:10px;text-align:center;padding:12px;
+}
+.reel-play{
+  width:38px;height:38px;border-radius:50%;
+  background:color-mix(in srgb, var(--bg-0) 50%, transparent);
+  border:1px solid color-mix(in srgb, var(--ink-0) 30%, transparent);
+  display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px);
+  color:var(--ink-0);
+}
+.reel-cap{
+  position:absolute;bottom:0;right:0;left:0;padding:9px 10px;
+  font-size:10.5px;line-height:1.35;color:var(--ink-2);
+  background:linear-gradient(0deg, color-mix(in srgb, var(--bg-0) 88%, transparent), transparent);
+}
+.reel-tag{
+  position:absolute;top:9px;right:9px;
+  font-size:9.5px;font-weight:700;color:var(--accent-2);
+  background:color-mix(in srgb, var(--bg-0) 72%, transparent);
+  border:1px solid color-mix(in srgb, var(--accent-2) 40%, transparent);
+  padding:3px 7px;border-radius:6px;backdrop-filter:blur(4px);
+}
+
+/* ============================================================
+   PHOTO SEQUENCE — the scroll-driven "river"
+   Two rows drift in opposite directions as the section scrolls.
+   ============================================================ */
+.river{
+  position:relative;margin-top:14px;
+  -webkit-mask-image:linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+  mask-image:linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+  overflow:hidden;padding:26px 0;
+}
+.river-row{
+  display:flex;gap:20px;width:max-content;
+  will-change:transform;
+  padding:14px 0;
+}
+.river-row .reel{
+  width:clamp(140px, 17vw, 210px);
+  transition:filter .4s var(--ease);
+}
+.river-row.rev{margin-top:6px;}
+.river-hint{
+  text-align:center;font-size:13.5px;color:var(--ink-3);margin-top:18px;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+}
+.river-hint .mouse{
+  width:17px;height:26px;border-radius:9px;border:1.5px solid var(--ink-3);
+  position:relative;flex:none;
+}
+.river-hint .mouse::after{
+  content:'';position:absolute;top:5px;left:50%;translate:-50% 0;
+  width:2.5px;height:6px;border-radius:2px;background:var(--accent-2);
+  animation:wheel 1.7s ease-in-out infinite;
+}
+@keyframes wheel{
+  0%{opacity:0;transform:translate(-50%,0);}
+  35%{opacity:1;}
+  100%{opacity:0;transform:translate(-50%,9px);}
+}
+
+/* ============================================================
+   SECTION HEADS + BLOCKS
+   ============================================================ */
+.sec-head{text-align:center;max-width:790px;margin:0 auto 48px;}
+.sec-head h2{font-size:clamp(26px,3.7vw,42px);line-height:1.2;}
+.sec-head p{color:var(--ink-2);font-size:18px;}
+
+.agitate-body{max-width:730px;margin:0 auto;font-size:19px;color:var(--ink-1);}
+.agitate-body strong{color:var(--ink-0);}
+.beat{opacity:1;}
+.callout{
+  margin-top:34px;padding:24px 28px;border-radius:16px;
+  background:color-mix(in srgb, var(--accent) 7%, var(--bg-2));
+  border:1px solid var(--line);
+  border-inline-start:3px solid var(--accent-2);
+  font-size:18px;color:var(--ink-0);font-weight:500;
+  position:relative;overflow:hidden;
+}
+.callout::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(100deg, transparent 40%, color-mix(in srgb, var(--accent-2) 12%, transparent) 50%, transparent 60%);
+  background-size:280% 100%;
+  animation:calloutsheen 6s var(--ease) infinite;
+}
+@keyframes calloutsheen{0%{background-position:170% 0;}60%,100%{background-position:-70% 0;}}
+
+/* mechanism steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;position:relative;}
+.steps::before{
+  content:'';position:absolute;top:38px;inset-inline:8%;height:1px;z-index:0;
+  background:linear-gradient(90deg, transparent, var(--line) 15%, var(--line) 85%, transparent);
+}
+.step-card{
+  border-radius:var(--radius);padding:32px 28px;position:relative;overflow:hidden;
+  transition:transform .4s var(--ease), box-shadow .4s var(--ease);
+}
+.step-card:hover{transform:translateY(-6px);box-shadow:0 26px 54px -20px rgba(0,0,0,.6), 0 0 44px -26px var(--accent-glow);}
+.step-num{
+  font-size:14px;font-weight:900;color:#1a0d2b;
+  background:linear-gradient(135deg, var(--accent-2), var(--accent));
+  width:36px;height:36px;border-radius:11px;
+  display:flex;align-items:center;justify-content:center;margin-bottom:18px;
+  position:relative;z-index:1;
+  box-shadow:0 8px 20px -6px color-mix(in srgb, var(--accent-2) 75%, transparent);
+}
+.step-card h3{font-size:20px;margin-bottom:8px;position:relative;z-index:1;}
+.step-card p{color:var(--ink-2);font-size:15.5px;margin:0;position:relative;z-index:1;}
+.step-card .tag{
+  display:inline-block;margin-top:15px;font-size:12.5px;color:var(--accent-2);
+  background:color-mix(in srgb, var(--accent-2) 13%, transparent);
+  padding:5px 11px;border-radius:8px;font-weight:700;position:relative;z-index:1;
+}
+
+/* why-99 */
+.why-box{
+  max-width:800px;margin:0 auto;border-radius:22px;padding:40px 38px;
+  position:relative;overflow:hidden;
+}
+.why-box h3{font-size:clamp(21px,2.6vw,27px);margin-bottom:16px;}
+.why-box p{color:var(--ink-1);font-size:17.5px;}
+.why-box p:last-child{margin-bottom:0;}
+.why-box strong{color:var(--ink-0);}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:26px 0 0;}
+.why-cell{
+  background:color-mix(in srgb, var(--bg-1) 80%, transparent);
+  border:1px solid var(--line);border-radius:14px;padding:20px;
+}
+.why-cell b{display:block;color:var(--accent-2);font-size:14px;margin-bottom:5px;}
+.why-cell span{font-size:15px;color:var(--ink-2);}
+
+/* fit */
+.fit-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.fit-card{border-radius:var(--radius);padding:30px;border:1px solid var(--line);
+  transition:transform .4s var(--ease), border-color .4s var(--ease);}
+.fit-card:hover{transform:translateY(-4px);}
+.fit-yes{background:color-mix(in srgb, var(--accent-2) 7%, var(--bg-2));}
+.fit-yes:hover{border-color:color-mix(in srgb, var(--accent-2) 45%, var(--line));}
+.fit-no{background:var(--bg-1);}
+.fit-card h3{font-size:19px;margin-bottom:18px;display:flex;align-items:center;gap:10px;}
+.fit-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:13px;}
+.fit-list li{display:flex;gap:11px;align-items:flex-start;font-size:15.5px;color:var(--ink-1);}
+.fit-list svg{flex:none;margin-top:3px;}
+
+/* testimonials */
+.testi-track-outer{
+  overflow:hidden;
+  -webkit-mask-image:linear-gradient(90deg, transparent, black 6%, black 94%, transparent);
+  mask-image:linear-gradient(90deg, transparent, black 6%, black 94%, transparent);
+}
+.testi-track{display:flex;gap:20px;width:max-content;animation:marquee 38s linear infinite;}
+.testi-track-outer:hover .testi-track,
+.testi-track-outer:focus-within .testi-track{animation-play-state:paused;}
+/* RTL: the track lays out right-to-left, so it must travel to the +X side.
+   translateX(-50%) (the LTR form) pushes every card off the left edge. */
+@keyframes marquee{from{transform:translateX(0);}to{transform:translateX(50%);}}
+.testi-card{
+  background:var(--bg-2);border:1px solid var(--line);border-radius:var(--radius);
+  padding:25px;width:330px;flex:none;
+  transition:transform .35s var(--ease), border-color .35s var(--ease);
+}
+.testi-card:hover{transform:translateY(-4px);border-color:color-mix(in srgb, var(--accent-2) 45%, var(--line));}
+.testi-head{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+.testi-avatar{
+  width:44px;height:44px;border-radius:50%;background:var(--bg-3);
+  display:flex;align-items:center;justify-content:center;color:var(--ink-3);font-weight:700;
+  border:1px dashed var(--line);flex:none;
+}
+.testi-name{font-weight:700;color:var(--ink-0);font-size:15px;}
+.testi-role{font-size:12.5px;color:var(--ink-3);}
+.testi-card p{font-size:15px;color:var(--ink-1);margin:0;}
+.placeholder-flag{
+  display:inline-block;margin-top:12px;font-size:11px;color:var(--accent-2);
+  border:1px dashed color-mix(in srgb, var(--accent-2) 50%, transparent);
+  padding:3px 8px;border-radius:6px;
+}
+
+/* value stack */
+.value-box{max-width:660px;margin:0 auto;border-radius:var(--radius);padding:36px;}
+.value-list{list-style:none;margin:0 0 24px;padding:0;display:flex;flex-direction:column;gap:18px;}
+.value-list li{display:flex;gap:14px;align-items:flex-start;font-size:16.5px;}
+.value-list .vl-txt b{display:block;color:var(--ink-0);font-weight:700;}
+.value-list .vl-txt span{color:var(--ink-2);font-size:15px;}
+.value-hint{font-size:14.5px;color:var(--ink-3);border-top:1px dashed var(--line);padding-top:20px;}
+
+/* scarcity */
+.scarcity-box{
+  max-width:700px;margin:0 auto;text-align:center;position:relative;overflow:hidden;
+  background:linear-gradient(180deg, color-mix(in srgb, var(--accent) 13%, var(--bg-2)), var(--bg-2));
+  border:1px solid color-mix(in srgb, var(--accent) 40%, var(--line));
+  border-radius:22px;padding:44px 32px;
+}
+.scarcity-box::before{
+  content:'';position:absolute;top:-40%;right:-20%;width:62%;aspect-ratio:1;z-index:0;
+  background:radial-gradient(circle, color-mix(in srgb, var(--accent) 34%, transparent), transparent 70%);
+  filter:blur(44px);animation:drift3 30s ease-in-out infinite;
+}
+.scarcity-box > *{position:relative;z-index:1;}
+.spots-ring-wrap{display:flex;flex-direction:column;align-items:center;margin:24px 0 28px;}
+.spots-ring{width:136px;height:136px;position:relative;}
+.spots-ring svg{width:100%;height:100%;transform:rotate(-90deg);}
+.spots-ring circle{fill:none;stroke-width:9;}
+.spots-ring .track{stroke:var(--bg-3);}
+.spots-ring .fill{
+  stroke:var(--accent-2);stroke-linecap:round;
+  stroke-dasharray:364.4;stroke-dashoffset:364.4;
+  transition:stroke-dashoffset 1.5s var(--ease);
+  filter:drop-shadow(0 0 6px var(--accent-glow));
+}
+.spots-ring-label{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.spots-ring-label b{font-size:32px;color:var(--ink-0);line-height:1;}
+.spots-ring-label span{font-size:12px;color:var(--ink-3);margin-top:2px;}
+.spots-count{font-size:15px;color:var(--ink-2);margin-top:15px;}
+.spots-count b{color:var(--accent-2);font-size:17px;}
+
+/* payment */
+.pay-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:36px;align-items:start;}
+.pay-card{border-radius:var(--radius);padding:32px;position:relative;overflow:hidden;}
+.price-row{display:flex;align-items:baseline;gap:11px;margin-bottom:6px;}
+.price-old{color:var(--ink-3);text-decoration:line-through;font-size:18px;}
+.price-new{font-size:48px;font-weight:900;color:var(--ink-0);line-height:1;}
+.price-new .cur{font-size:22px;}
+.price-vat{color:var(--ink-3);font-size:13.5px;margin-bottom:26px;}
+.secure-row{display:flex;align-items:center;justify-content:center;gap:8px;font-size:13px;color:var(--ink-3);margin-top:14px;}
+.pay-side h3{font-size:18px;margin-bottom:15px;}
+.pay-includes{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px;font-size:15px;color:var(--ink-2);}
+.pay-includes li{display:flex;gap:9px;align-items:flex-start;}
+.pay-includes svg{flex:none;margin-top:4px;}
+
+/* payment flow micro-steps */
+.pay-flow{
+  list-style:none;margin:0 0 22px;padding:0;
+  display:flex;flex-direction:column;gap:11px;
+  font-size:14.5px;color:var(--ink-2);
+}
+.pay-flow li{display:flex;gap:10px;align-items:flex-start;}
+.pf-dot{
+  width:7px;height:7px;border-radius:50%;flex:none;margin-top:8px;
+  background:var(--accent-2);
+  box-shadow:0 0 0 3px color-mix(in srgb, var(--accent-2) 18%, transparent);
+}
+
+/* ==== EMBED SLOTS ==== */
+.embed-slot{
+  border:1px dashed color-mix(in srgb, var(--accent-2) 45%, transparent);
+  border-radius:14px;padding:26px 22px;text-align:center;
+  color:var(--ink-3);font-size:14px;
+  background:color-mix(in srgb, var(--bg-1) 75%, transparent);
+  margin-bottom:20px;
+}
+.embed-slot b{display:block;color:var(--accent-2);font-size:12px;letter-spacing:.04em;margin-bottom:8px;}
+
+/* after purchase */
+.after-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.after-card{
+  background:var(--bg-1);border:1px solid var(--line);border-radius:14px;padding:24px;
+  text-align:center;position:relative;overflow:hidden;
+  transition:transform .35s var(--ease), border-color .35s var(--ease);
+}
+.after-card:hover{transform:translateY(-4px);border-color:color-mix(in srgb, var(--accent-2) 40%, var(--line));}
+.after-num{
+  width:32px;height:32px;border-radius:50%;background:var(--bg-3);border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;margin:0 auto 13px;font-weight:700;font-size:13px;color:var(--ink-2);
+  position:relative;z-index:1;
+}
+.after-card h3{font-size:16px;margin-bottom:6px;position:relative;z-index:1;}
+.after-card p{font-size:14px;color:var(--ink-3);margin:0;position:relative;z-index:1;}
+
+/* faq */
+.faq{max-width:780px;margin:0 auto;}
+.faq-item{border-bottom:1px solid var(--line);}
+.faq-q{
+  width:100%;background:none;border:none;color:var(--ink-0);font-family:inherit;
+  display:flex;justify-content:space-between;align-items:center;gap:16px;
+  padding:21px 4px;font-size:17px;font-weight:500;cursor:pointer;text-align:right;
+  min-height:44px;transition:color .3s var(--ease);
+}
+.faq-q:hover{color:var(--accent-2);}
+.faq-q svg{flex:none;transition:transform .35s var(--ease);}
+.faq-item.open .faq-q svg{transform:rotate(45deg);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s var(--ease);color:var(--ink-2);font-size:15.5px;}
+.faq-a-inner{padding:0 4px 21px;}
+.faq-item.open .faq-a{max-height:520px;}
+
+/* final cta — the empty studio chair sits behind the close */
+.final-cta{text-align:center;overflow:hidden;}
+.final-bg{
+  position:absolute;inset:0;z-index:-2;pointer-events:none;
+  background-image:url('images/studio-2.jpg');
+  background-size:cover;background-position:center 40%;
+  opacity:.30;
+  animation:kenburns 34s ease-in-out infinite;
+}
+.final-bg::after{
+  content:'';position:absolute;inset:0;
+  background:
+    linear-gradient(0deg, var(--bg-0), color-mix(in srgb, var(--bg-0) 72%, transparent) 45%, var(--bg-0)),
+    radial-gradient(ellipse 70% 60% at 50% 50%, transparent, color-mix(in srgb, var(--bg-0) 80%, transparent));
+}
+.final-cta h2{font-size:clamp(26px,4vw,42px);max-width:680px;margin:0 auto 16px;}
+.final-cta p{color:var(--ink-2);max-width:540px;margin:0 auto 32px;font-size:17px;}
+
+footer{padding:44px 0 70px;text-align:center;color:var(--ink-3);font-size:13px;position:relative;z-index:1;}
+footer a{color:var(--ink-2);}
+
+.sticky-cta{
+  position:fixed;bottom:0;inset-inline:0;z-index:50;
+  background:color-mix(in srgb, var(--bg-0) 90%, transparent);
+  backdrop-filter:blur(12px);border-top:1px solid var(--line);
+  padding:12px 16px;
+  align-items:center;justify-content:space-between;gap:14px;
+  display:flex;transform:translateY(110%);transition:transform .45s var(--ease);
+}
+.sticky-cta.show{transform:none;}
+.sticky-cta .sc-price{font-size:14px;color:var(--ink-2);}
+.sticky-cta .sc-price b{color:var(--accent-2);font-size:17px;}
+
+/* reveal-safe: visible by default, JS only pre-hides confirmed off-screen items */
+.reveal{opacity:1;transform:none;transition:opacity .8s var(--ease), transform .8s var(--ease);}
+.reveal.pre-reveal{opacity:0;transform:translateY(28px);}
+.reveal.in{opacity:1;transform:none;}
+.stagger.pre-reveal{transition-delay:var(--d, 0ms);}
+
+@media (max-width: 900px){
+  .why-grid{grid-template-columns:1fr;}
+}
+@media (max-width: 860px){
+  .steps, .fit-grid, .after-steps, .pay-grid{grid-template-columns:1fr;}
+  section{padding:66px 0;}
+  .hero{padding-top:92px;}
+  body{font-size:16px;}
+  .sticky-cta{padding-bottom:calc(12px + env(safe-area-inset-bottom));}
+  .steps::before{display:none;}
+  .hero-stage{min-height:auto;padding:0 0 12px;}
+  .orbit .o3, .orbit .o4, .orbit .o5{display:none;}
+  .orbit .o1{top:-4%;right:-2%;}
+  .orbit .o2{bottom:-4%;left:-2%;right:auto;}
+  .blob{filter:blur(52px);}
+  .why-box{padding:30px 24px;}
+}
+@media (max-width: 520px){
+  .hero-visual{width:100%;}
+  .river-row .reel{width:132px;}
+}
+
+/* reduced motion — global kill switch */
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:.001ms !important;animation-iteration-count:1 !important;
+    transition-duration:.001ms !important;scroll-behavior:auto !important;}
+  .reveal, .w, .hero-sub, .hero-cta-row, .trust-bar{opacity:1 !important;transform:none !important;}
+  .testi-track{animation:none !important;transform:none !important;}
+  .testi-track-outer{overflow-x:auto;}
+  .river-row{transform:none !important;}
+  .river{-webkit-mask-image:none;mask-image:none;overflow-x:auto;}
+  .blob{animation:none !important;}
+  .cursor-glow{display:none !important;}
+}
+</style>
+</head>
+<body>
+
+<!-- living background -->
+<div class="aurora" aria-hidden="true">
+  <span class="blob b1"></span>
+  <span class="blob b2"></span>
+  <span class="blob b3"></span>
+</div>
+<div class="atmo-noise" aria-hidden="true"></div>
+<div class="cursor-glow" data-cursor aria-hidden="true"></div>
+<div class="progress" data-progress aria-hidden="true"></div>
+
+<div class="page-bg" aria-hidden="true">
+  <div class="atmo-grid"></div>
+</div>
+
+<div class="page-content">
+
+<!-- ===================== HERO ===================== -->
+<section class="hero" data-accent="#9d4edd" data-accent-2="#c77dff">
+  <div class="sec-glow" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="eyebrow"><span class="rec-dot"></span> נשארו <b data-spots-left-text>10</b> מקומות · ואז הדף הזה נסגר</div>
+
+    <h1 data-split>אתה לא "לא טוב מול מצלמה" — פשוט אף אחד עוד לא <span class="hl grad-text">שאל אותך את השאלות הנכונות</span></h1>
+
+    <p class="hero-sub">20 דקות מול מראיין מקצועי שיודע בדיוק מה לחלץ ממך — ואתה יוצא עם <b>3 תכנים שיווקיים בקול שלך</b>. בלי תסריט לשנן, בלי ציוד, בלי עוד קורס שלא תסיים. <b>99 ₪ + מע״מ, ל-10 בעלי עסקים בלבד.</b></p>
+
+    <div class="hero-cta-row">
+      <a href="#payment" class="btn btn-primary btn-lg">
+        אני רוצה את המקום שלי — 99 ₪
+        <svg class="arr" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+      </a>
+      <span class="cta-note">תשלום אחד. בלי מנוי. בלי הפתעות.</span>
+    </div>
+
+    <div class="trust-bar">
+      <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg> תשלום מאובטח דרך SUMIT</span>
+      <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg> 20 דקות מהיומן שלך</span>
+      <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h11l5 5v11H4z"/><path d="M15 4v5h5"/></svg> הקבצים שלך, לתמיד</span>
+    </div>
+
+    <!-- HERO STAGE — floating reels orbiting a video facade -->
+    <div class="hero-stage">
+      <div class="orbit" data-orbit aria-hidden="true">
+        <figure class="reel o1 has-img" data-float="0.9"  data-rot="-7" style="--img:url('images/studio-3.jpg')"><div class="reel-media"></div><span class="reel-tag">האולפן</span></figure>
+        <figure class="reel o2 has-img" data-float="1.35" data-rot="6"  style="--img:url('images/studio-2.jpg')"><div class="reel-media"></div></figure>
+        <figure class="reel o3 has-img" data-float="1.1"  data-rot="8"  style="--img:url('images/studio-5.jpg')"><div class="reel-media"></div><span class="reel-tag">המיקרופון</span></figure>
+        <figure class="reel o4 has-img" data-float="0.65" data-rot="-5" style="--img:url('images/studio-4.jpg')"><div class="reel-media"></div></figure>
+        <figure class="reel o5 has-img" data-float="1.6"  data-rot="10" style="--img:url('images/studio-1.jpg')"><div class="reel-media"></div></figure>
+      </div>
+
+      <div class="hero-visual reveal" data-tilt>
+        <div class="hero-media" aria-hidden="true"></div>
+        <span class="particle" style="width:6px;height:6px;top:18%;right:12%;animation-duration:7s;"></span>
+        <span class="particle" style="width:4px;height:4px;top:70%;right:22%;animation-duration:9s;animation-delay:1s;"></span>
+        <span class="particle" style="width:5px;height:5px;top:35%;left:10%;animation-duration:8s;animation-delay:2s;"></span>
+        <span class="particle" style="width:3px;height:3px;top:80%;left:20%;animation-duration:6.5s;animation-delay:.5s;"></span>
+        <div class="play">
+          <div class="play-ring r2"></div>
+          <div class="play-ring"></div>
+          <div class="play-btn">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7L8 5z" fill="#f7f5fb"/></svg>
+          </div>
+        </div>
+        <div class="ph-label">האולפן שבו נצלם — תל אביב · [PLACEHOLDER: להחליף בסרטון הדגמה כשיהיה]</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ===================== AGITATION ===================== -->
+<section data-accent="#7b2cbf" data-accent-2="#a45ce0">
+  <div class="sec-glow" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>הסרטון שלא צילמת החודש עלה לך הרבה יותר מ-99 שקל</h2>
+    </div>
+    <div class="agitate-body">
+      <p class="reveal stagger beat" style="--d:0ms">פתחת את המצלמה ביום שלישי. עמדת מולה. אמרת שתי מילים.<br><strong>מחקת. ניסית שוב. מחקת שוב.</strong> ואז סגרת את האפליקציה ואמרת לעצמך "נעשה את זה בשבוע הבא".</p>
+      <p class="reveal stagger beat" style="--d:110ms">כתבת לעצמך תסריט — יצא רובוטי, לא נשמע כמוך בכלל. שילמת פעם לצלם — קיבלת וידאו יפה שלא הביא אף לקוח, כי אף אחד לא האמין לו. נרשמת לקורס תוכן — הוא עדיין שם, בסימנייה.</p>
+      <p class="reveal stagger beat" style="--d:220ms">ובינתיים המתחרה שלך מדבר בביטחון ברילס. <strong>הוא לא מצלם יותר טוב ממך. הוא פשוט מצלם.</strong></p>
+      <div class="callout reveal">כל חודש שאתה שקט ברשת, מישהו אחר תופס את המקום שהיה אמור להיות שלך. לא כי הוא מבין יותר ממך בתחום — אלא כי אותו לקוח פוטנציאלי ראה אותו, ואותך לא.</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ===================== PHOTO SEQUENCE (scroll-driven river) ===================== -->
+<section data-accent="#b14aed" data-accent-2="#d68bff">
+  <div class="sec-glow" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>ככה נראים 20 דקות מול המיקרופון שלנו</h2>
+      <p>אלה אנשים אמיתיים שישבו על אותו כיסא, מול אותו מיקרופון. בלי תסריט, בלי לשנן, בלי איפור — פשוט ענו על שאלות. זה כל הסוד.</p>
+    </div>
+  </div>
+
+  <!-- Scroll-driven photo river. Rows move in opposite directions as you scroll. -->
+  <div class="river" data-river>
+    <div class="river-row" data-river-row data-dir="-1" data-range="220">
+      <figure class="reel has-img" data-float="0.8"  style="--img:url('images/interview-3.jpg');--pos:46% center"><div class="reel-media"></div></figure>
+      <figure class="reel has-img" data-float="1.3"  style="--img:url('images/interview-12.jpg');--pos:40% center"><div class="reel-media"></div></figure>
+      <figure class="reel has-img" data-float="0.6"  style="--img:url('images/interview-8.jpg');--pos:46% center"><div class="reel-media"></div></figure>
+      <figure class="reel has-img" data-float="1.5"  style="--img:url('images/interview-14.jpg');--pos:35% center"><div class="reel-media"></div></figure>
+      <figure class="reel has-img" data-float="0.9"  style="--img:url('images/interview-15.jpg');--pos:55% center"><div class="reel-media"></div></figure>
+      <figure class="reel has-img" data-float="1.15" style="--img:url('images/interview-5.jpg');--pos:43% center"><div class="reel-media"></div></figure>
+      <figure class="reel has-img" data-float="0.7"  style="--img:url('images/interview-10.jpg');--pos:43% center"><div class="reel-media"></div></figure>
+      <figure class="reel has-img" data-float="1.25" style="--img:url('images/interview-2.jpg');--pos:45% center"><div class="reel-media"></div></figure>
+    </div>
+
+    <div class="river-row rev" data-river-row data-dir="1" data-range="300">
+      <figure class="reel has-img" data-float="1.2"  style="--img:url('images/interview-13.jpg');--pos:53% center"><div class="reel-media"></div></figure>
+      <figure class="reel has-img" data-float="0.75" style="--img:url('images/interview-4.jpg');--pos:44% center"><div class="reel-media"></div></figure>
+      <figure class="reel has-img" data-float="1.45" style="--img:url('images/interview-6.jpg');--pos:43% center"><div class="reel-media"></div></figure>
+      <figure class="reel has-img" data-float="0.55" style="--img:url('images/interview-1.jpg');--pos:47% center"><div class="reel-media"></div></figure>
+      <figure class="reel has-img" data-float="1.05" style="--img:url('images/interview-11.jpg');--pos:41% center"><div class="reel-media"></div></figure>
+      <figure class="reel has-img" data-float="0.85" style="--img:url('images/interview-9.jpg');--pos:39% center"><div class="reel-media"></div></figure>
+      <figure class="reel has-img" data-float="1.3"  style="--img:url('images/interview-7.jpg');--pos:40% center"><div class="reel-media"></div></figure>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="river-hint reveal"><span class="mouse"></span> גללו — התמונות זזות איתכם</div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ===================== MECHANISM ===================== -->
+<section data-accent="#a855f7" data-accent-2="#cf9bff">
+  <div class="sec-glow" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>"ראיון 3 השאלות" — המנגנון שמוציא ממך תוכן שלא ידעת שיש לך</h2>
+      <p>אין תסריט לשנן. אין ציוד להשיג. אין קורס לעבור. יש שיחה אחת — ומישהו שיודע מה לשאול.</p>
+    </div>
+    <div class="steps">
+      <div class="step-card grad-border reveal stagger" style="--d:0ms" data-ghost="01">
+        <div class="step-num">1</div>
+        <h3>שאלון הכנה קצר</h3>
+        <p>לפני הראיון אתה ממלא שאלון ממוקד על העסק שלך. ככה השיחה מתחילה כבר בעניין — ולא בבזבוז של עשר דקות על "אז ספר לי מה אתה עושה".</p>
+      </div>
+      <div class="step-card grad-border reveal stagger" style="--d:130ms" data-ghost="02">
+        <div class="step-num">2</div>
+        <h3>20 דקות, מראיין מקצועי</h3>
+        <p>3 שאלות שנבנו בדיוק כדי לחלץ ממך את המסר שמוכר. אתה לא מציג — אתה פשוט עונה. בלי לחץ, בלי "תגיד את זה שוב, לא יצא טוב".</p>
+        <span class="tag">כאן קורה הקסם</span>
+      </div>
+      <div class="step-card grad-border reveal stagger" style="--d:260ms" data-ghost="03">
+        <div class="step-num">3</div>
+        <h3>הקובץ הגולמי — שלך</h3>
+        <p><strong style="color:var(--ink-0)">דוגרי:</strong> אתה מקבל את החומר כמו שצולם. אנחנו לא עורכים אותו. תחתוך, תערוך, תעשה איתו מה שבא לך — לבד או עם עורך שלך. אומרים את זה מראש כי אין קאץ'.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ===================== VALUE STACK ===================== -->
+<section data-accent="#9d4edd" data-accent-2="#c77dff">
+  <div class="sec-glow" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>מה בדיוק נכנס לך ליד — בלי אותיות קטנות</h2>
+    </div>
+    <div class="value-box grad-border reveal">
+      <ul class="value-list">
+        <li>
+          <span class="icon-tile"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>
+          <span class="vl-txt"><b>שאלון הכנה אישי לעסק שלך</b><span>לא תבנית גנרית שנשלחת לכולם — שאלות שנכתבו על הענף שלך.</span></span>
+        </li>
+        <li>
+          <span class="icon-tile"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg></span>
+          <span class="vl-txt"><b>ראיון מוקלט של 20 דקות עם מראיין מקצועי</b><span>מהמחשב או מהטלפון שלך. לא צריך ציוד, לא צריך להגיע לשום מקום.</span></span>
+        </li>
+        <li>
+          <span class="icon-tile"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h11l5 5v11H4z"/><path d="M15 4v5h5"/></svg></span>
+          <span class="vl-txt"><b>3 תכנים גולמיים, מוכנים לעריכה — שלך לתמיד</b><span>בלי רישיון, בלי הגבלה. תעלה אותם לאן שתרצה, מתי שתרצה.</span></span>
+        </li>
+      </ul>
+      <div class="value-hint">ובסוף הראיון — נשב רגע להכיר את מה שאתה כבר עושה בשיווק. אם נראה שיש התאמה, נדבר גם על הצעד הבא. לא לכולם, ורק אם זה באמת רלוונטי אליך.</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ===================== WHY 99 (objection killer) ===================== -->
+<section data-accent="#c04ae0" data-accent-2="#e08bff">
+  <div class="sec-glow" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>רגע — למה 99 שקל? מה הקאץ'?</h2>
+      <p>שאלה הוגנת. אם היינו במקומך, גם אנחנו היינו שואלים אותה.</p>
+    </div>
+    <div class="why-box grad-border reveal">
+      <h3>אין קאץ'. יש אינטרס — ואנחנו נגיד לך אותו בדיוק.</h3>
+      <p>ב-99 שקל אנחנו <strong>לא מרוויחים על השירות הזה</strong>. זה מכסה לנו את שעת העבודה, וזהו. אנחנו עושים את זה כי זו הדרך הכי זולה והכי כנה שלנו להכיר בעלי עסקים אמיתיים — כאלה שבאמת מזיזים דברים, ולא רק אומרים שיום אחד יתחילו.</p>
+      <p><strong>ההימור שלנו פשוט:</strong> שתצא מהראיון עם 3 תכנים שאתה באמת גאה בהם, ותזכור מי ישב איתך. אם יתאים לשנינו — נדבר על המשך. אם לא — יצאת עם 3 תכנים ב-99 שקל, וזה עדיין העסקה הכי טובה שעשית החודש.</p>
+      <div class="why-grid">
+        <div class="why-cell"><b>מה זה כן</b><span>ראיון אמיתי, מראיין אמיתי, 3 תכנים גולמיים שיוצאים לך ביד באותו שבוע.</span></div>
+        <div class="why-cell"><b>מה זה לא</b><span>לא וידאו ערוך ומוכן להעלאה, ולא מנוי שמתחדש בשקט בכרטיס האשראי.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ===================== WHO IT'S FOR ===================== -->
+<section data-accent="#9d4edd" data-accent-2="#c77dff">
+  <div class="sec-glow" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>למי זה מתאים — ולמי עדיף לחסוך את ה-99 שקל</h2>
+    </div>
+    <div class="fit-grid">
+      <div class="fit-card fit-yes reveal stagger" style="--d:0ms">
+        <h3><span class="icon-tile"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></span> זה בשבילך אם:</h3>
+        <ul class="fit-list">
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="color:var(--accent-2)"><path d="M20 6L9 17l-5-5"/></svg> יש לך מה להגיד על העסק שלך — אתה פשוט נתקע ברגע שהאור האדום נדלק</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="color:var(--accent-2)"><path d="M20 6L9 17l-5-5"/></svg> אתה רוצה תוכן שנשמע כמוך — לא תסריט מבוים שכולם מזהים מרחוק</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="color:var(--accent-2)"><path d="M20 6L9 17l-5-5"/></svg> אתה בסדר עם לקבל קובץ גולמי ולערוך אותו איך שבא לך</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="color:var(--accent-2)"><path d="M20 6L9 17l-5-5"/></svg> נמאס לך לדחות את זה לחודש הבא, כבר שנה</li>
+        </ul>
+      </div>
+      <div class="fit-card fit-no reveal stagger" style="--d:130ms">
+        <h3><span class="icon-tile" style="background:var(--bg-3);border-color:var(--line);color:var(--ink-3)"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg></span> זה לא בשבילך אם:</h3>
+        <ul class="fit-list">
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#87809c" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg> אתה מחפש וידאו ערוך וגמור, מוכן להעלאה — זה לא הדיל הזה</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#87809c" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg> אין לך 20 דקות פנויות לשיחה כנה עם בן אדם</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#87809c" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg> אתה מחפש עוד קורס "איך לצלם" ולא תוצר ביד השבוע</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ===================== SOCIAL PROOF ===================== -->
+<section data-accent="#b14aed" data-accent-2="#d68bff">
+  <div class="sec-glow" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>לא צריך להאמין לנו על המילה</h2>
+      <p>[PLACEHOLDER — להחליף בעדויות אמיתיות עם שם, תמונה ותוצאה]</p>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="testi-track-outer reveal">
+      <div class="testi-track">
+        <div class="testi-card">
+          <div class="testi-head">
+            <div class="testi-avatar">א.כ</div>
+            <div><div class="testi-name">[שם לקוח]</div><div class="testi-role">[תחום עיסוק]</div></div>
+          </div>
+          <p>"תוך פחות מ-20 דקות יצא לי תוכן שהרגשתי בו בנוח בפעם הראשונה — ולא כתבתי מילה מראש."</p>
+          <span class="placeholder-flag">PLACEHOLDER — להחליף בעדות אמיתית</span>
+        </div>
+        <div class="testi-card">
+          <div class="testi-head">
+            <div class="testi-avatar">ד.מ</div>
+            <div><div class="testi-name">[שם לקוח]</div><div class="testi-role">[תחום עיסוק]</div></div>
+          </div>
+          <p>"הייתי בטוח שאני 'לא טיפוס למצלמה'. השאלות פשוט הוציאו את זה ממני בטבעיות."</p>
+          <span class="placeholder-flag">PLACEHOLDER — להחליף בעדות אמיתית</span>
+        </div>
+        <div class="testi-card">
+          <div class="testi-head">
+            <div class="testi-avatar">נ.ש</div>
+            <div><div class="testi-name">[שם לקוח]</div><div class="testi-role">[תחום עיסוק]</div></div>
+          </div>
+          <p>"קיבלתי חומר גולמי אמיתי, ערכתי אותו כמו שרציתי, והתוצאה נשמעת בדיוק כמוני."</p>
+          <span class="placeholder-flag">PLACEHOLDER — להחליף בעדות אמיתית</span>
+        </div>
+        <!-- duplicate for seamless loop -->
+        <div class="testi-card" aria-hidden="true">
+          <div class="testi-head">
+            <div class="testi-avatar">א.כ</div>
+            <div><div class="testi-name">[שם לקוח]</div><div class="testi-role">[תחום עיסוק]</div></div>
+          </div>
+          <p>"תוך פחות מ-20 דקות יצא לי תוכן שהרגשתי בו בנוח בפעם הראשונה — ולא כתבתי מילה מראש."</p>
+          <span class="placeholder-flag">PLACEHOLDER — להחליף בעדות אמיתית</span>
+        </div>
+        <div class="testi-card" aria-hidden="true">
+          <div class="testi-head">
+            <div class="testi-avatar">ד.מ</div>
+            <div><div class="testi-name">[שם לקוח]</div><div class="testi-role">[תחום עיסוק]</div></div>
+          </div>
+          <p>"הייתי בטוח שאני 'לא טיפוס למצלמה'. השאלות פשוט הוציאו את זה ממני בטבעיות."</p>
+          <span class="placeholder-flag">PLACEHOLDER — להחליף בעדות אמיתית</span>
+        </div>
+        <div class="testi-card" aria-hidden="true">
+          <div class="testi-head">
+            <div class="testi-avatar">נ.ש</div>
+            <div><div class="testi-name">[שם לקוח]</div><div class="testi-role">[תחום עיסוק]</div></div>
+          </div>
+          <p>"קיבלתי חומר גולמי אמיתי, ערכתי אותו כמו שרציתי, והתוצאה נשמעת בדיוק כמוני."</p>
+          <span class="placeholder-flag">PLACEHOLDER — להחליף בעדות אמיתית</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ===================== SCARCITY ===================== -->
+<section class="section-tight" data-accent="#d63fd6" data-accent-2="#f078e8">
+  <div class="sec-glow" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="scarcity-box reveal">
+      <div class="eyebrow"><span class="rec-dot"></span> מקומות אמיתיים · לא ספירה מזויפת שמתאפסת מחר</div>
+      <h2 style="font-size:clamp(22px,3vw,28px);">10 בעלי עסקים. לא 11. ואז הדף הזה יורד.</h2>
+      <p style="color:var(--ink-2);max-width:500px;margin:12px auto 0;">דוגרי: זה לא טריק. יש לנו זמן לעשות את זה כמו שצריך ל-10 אנשים, ולא באחד יותר. השירות חד-פעמי לכל עסק, ולא ניתן לרכוש אותו פעמיים — גם אם תבקש.</p>
+      <div class="spots-ring-wrap">
+        <div class="spots-ring">
+          <svg viewBox="0 0 132 132">
+            <circle class="track" cx="66" cy="66" r="58"/>
+            <circle class="fill" cx="66" cy="66" r="58" data-spots-ring/>
+          </svg>
+          <div class="spots-ring-label"><b data-spots-left>10</b><span>מתוך 10</span></div>
+        </div>
+        <div class="spots-count">נותרו <b data-spots-left-text>10</b> מקומות פנויים</div>
+      </div>
+      <a href="#payment" class="btn btn-primary">לתפוס את המקום שלי
+        <svg class="arr" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ===================== PAYMENT ===================== -->
+<section id="payment" data-accent="#a855f7" data-accent-2="#d0a0ff">
+  <div class="sec-glow" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>שריין את המקום שלך — לפני שהוא נתפס</h2>
+      <p>תשלום מאובטח כאן בעמוד. ברגע שהתשלום עובר, אתה מגיע ישר לשאלון ולשיבוץ ביומן. בלי לחכות למייל.</p>
+    </div>
+    <div class="pay-grid">
+      <div class="pay-card grad-border reveal">
+        <div class="price-row">
+          <span class="price-old">₪249</span>
+          <span class="price-new">99<span class="cur">₪</span></span>
+        </div>
+        <div class="price-vat">+ מע״מ · תשלום חד-פעמי · לא ניתן לרכוש פעמיים לאותו עסק</div>
+
+        <ul class="pay-flow">
+          <li><span class="pf-dot"></span> לוחצים על הכפתור ועוברים לעמוד הסליקה המאובטח של SUMIT</li>
+          <li><span class="pf-dot"></span> משלמים 99 ₪ + מע״מ — תשלום אחד, בלי מנוי</li>
+          <li><span class="pf-dot"></span> חוזרים אוטומטית לעמוד התודה, ומשבצים מועד ביומן</li>
+        </ul>
+
+        <!-- SUMIT hosted checkout.
+             חשוב: בהגדרות המוצר ב-SUMIT צריך להגדיר "עמוד תודה / הצלחה"
+             לכתובת המלאה של thank-you.html באתר שלכם, אחרת הלקוח יישאר
+             בעמוד של SUMIT ולא יגיע לשיבוץ ביומן. -->
+        <a href="https://pay.sumit.co.il/46yyg4/sj73bz/c/payment/?cartid=7aa9c6e4-de3c-4fb3-bd37-079b7713f7c3"
+           class="btn btn-primary btn-block btn-lg" data-sumit-cta rel="noopener">
+          לתשלום מאובטח — 99 ₪
+          <svg class="arr" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+        </a>
+        <div class="secure-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg> החיוב מאובטח ומתבצע דרך מערכת הסליקה SUMIT</div>
+      </div>
+
+      <div class="pay-side reveal">
+        <h3>מה כלול ברכישה:</h3>
+        <ul class="pay-includes">
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="color:var(--accent-2)"><path d="M20 6L9 17l-5-5"/></svg> שאלון הכנה אישי לעסק שלך</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="color:var(--accent-2)"><path d="M20 6L9 17l-5-5"/></svg> ראיון של 20 דקות עם מראיין מקצועי</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="color:var(--accent-2)"><path d="M20 6L9 17l-5-5"/></svg> 3 תכנים גולמיים, שלך לתמיד</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="color:var(--accent-2)"><path d="M20 6L9 17l-5-5"/></svg> שיבוץ מיידי ביומן מיד אחרי התשלום</li>
+        </ul>
+        <p style="margin-top:20px;font-size:13.5px;color:var(--ink-3);">השירות נמכר במחיר השקה חד-פעמי, ללא החזר כספי, ומיועד לתשלום אחד בלבד לכל עסק. כן, כתבנו את זה גם כאן — אנחנו לא אוהבים אותיות קטנות.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ===================== AFTER PURCHASE ===================== -->
+<section data-accent="#9d4edd" data-accent-2="#c77dff">
+  <div class="sec-glow" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>מה קורה בדקה שאחרי התשלום</h2>
+    </div>
+    <div class="after-steps">
+      <div class="after-card reveal stagger" style="--d:0ms" data-ghost="01">
+        <div class="after-num">1</div>
+        <h3>שאלון הכנה קצר</h3>
+        <p>מקבלים קישור לשאלון שממקד את 3 השאלות שיוציאו לכם את המסר הכי מדויק.</p>
+      </div>
+      <div class="after-card reveal stagger" style="--d:120ms" data-ghost="02">
+        <div class="after-num">2</div>
+        <h3>שיבוץ ביומן</h3>
+        <p>בדף התודה בוחרים זמן פנוי ביומן שלנו. לא צריך לרדוף אחרינו במיילים.</p>
+      </div>
+      <div class="after-card reveal stagger" style="--d:240ms" data-ghost="03">
+        <div class="after-num">3</div>
+        <h3>הראיון + הקבצים</h3>
+        <p>נפגשים ל-20 דקות, מוציאים את 3 התכנים, ואתם יוצאים עם הקובץ הגולמי ביד.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ===================== FAQ ===================== -->
+<section data-accent="#8a3fd0" data-accent-2="#b878ee">
+  <div class="sec-glow" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>השאלות שאתה שואל את עצמך עכשיו — דוגרי</h2>
+    </div>
+    <div class="faq reveal">
+      <div class="faq-item">
+        <button class="faq-q"><span>אתם עורכים לי את הסרטון?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></button>
+        <div class="faq-a"><div class="faq-a-inner">לא. ואנחנו אומרים את זה בכל הזדמנות, כי אנחנו לא אוהבים הפתעות. אתה מקבל את הקובץ הגולמי כמו שצולם — בלי חיתוך, בלי עריכה. עורך לבד, או עם מי שאתה רוצה. זו בדיוק הסיבה שזה עולה 99 ולא 990.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>אני ממש לא בנוח מול מצלמה. זה יעבוד עליי?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></button>
+        <div class="faq-a"><div class="faq-a-inner">בדיוק בשבילך בנינו את זה. אתה לא מציג ולא משחק — אתה עונה לשאלות של בן אדם. רוב האנשים שוכחים מהמצלמה אחרי הדקה השלישית, וזה בדיוק החומר הכי טוב שיוצא.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>למה זה כל כך זול? מה אתם מרוויחים מזה?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></button>
+        <div class="faq-a"><div class="faq-a-inner">כמעט כלום, וזו האמת. המחיר מכסה שעת עבודה. אנחנו עושים את זה כדי להכיר בעלי עסקים שבאמת עושים דברים. אם בסוף הראיון נראה שיש התאמה — נדבר על המשך. אם לא, יצאת עם 3 תכנים ב-99 שקל וזה נגמר שם, בלי לחץ.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>אפשר לשלם פעמיים ולקבל עוד סבב תכנים?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></button>
+        <div class="faq-a"><div class="faq-a-inner">לא. חד-פעמי לכל עסק, מוגבל ל-10 מקומות בסך הכול. אין "עוד סיבוב" באותם תנאים.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>כמה זמן לוקח מהתשלום ועד שהקבצים אצלי?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></button>
+        <div class="faq-a"><div class="faq-a-inner">[PLACEHOLDER: למלא לוח זמנים מדויק — למשל: תוך X ימי עסקים מהראיון תקבלו את הקובץ הגולמי במייל / בקישור להורדה]</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span>יש החזר כספי?</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></button>
+        <div class="faq-a"><div class="faq-a-inner">אין, ונגיד את זה ישר במקום להסתיר באותיות קטנות. המחיר נמוך בכוונה, ואין "ביטוח" על 99 שקל. מה שיש זה שקיפות מלאה על כל מה שאתה מקבל — לפני שאתה משלם. יש לך שאלה לפני הרכישה? נשמח לענות: [PLACEHOLDER: פרטי יצירת קשר].</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ===================== FINAL CTA ===================== -->
+<section class="final-cta" data-accent="#d63fd6" data-accent-2="#f078e8">
+  <div class="final-bg" aria-hidden="true"></div>
+  <div class="sec-glow" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow"><span class="rec-dot"></span> נותרו <b data-spots-left-text>10</b> מתוך 10 מקומות</div>
+      <h2>או שתדחה את זה עוד חודש — או שתסגור את זה ב-20 דקות, היום.</h2>
+      <p>3 תכנים אמיתיים בקול שלך, ב-99 ₪. אין קאץ', אין אותיות קטנות, אין מנוי. יש 10 מקומות ומחיר שלא יחזור.</p>
+      <a href="#payment" class="btn btn-primary btn-lg">
+        אני רוצה את המקום שלי מתוך ה-10
+        <svg class="arr" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>ויראלי מדיה © <span data-year></span> — כל הזכויות שמורות</div>
+  </div>
+</footer>
+
+</div><!-- /.page-content -->
+
+<div class="sticky-cta" data-sticky>
+  <div class="sc-price">רק <b>99 ₪</b> + מע״מ · <span data-spots-left-text>10</span> מקומות</div>
+  <a href="#payment" class="btn btn-primary">שריין מקום</a>
+</div>
+
+<script>
+(function(){
+  'use strict';
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- year ---------- */
+  var y = document.querySelector('[data-year]');
+  if(y) y.textContent = new Date().getFullYear();
+
+  /* =========================================================
+     SPOTS — edit SPOTS_TAKEN manually to reflect real sales
+     ========================================================= */
+  var SPOTS_TOTAL = 10;
+  var SPOTS_TAKEN = 0;              // <-- update as real purchases come in
+  var spotsLeft = Math.max(SPOTS_TOTAL - SPOTS_TAKEN, 0);
+
+  document.querySelectorAll('[data-spots-left-text]').forEach(function(el){
+    el.textContent = spotsLeft;
+  });
+
+  var ringFill = document.querySelector('[data-spots-ring]');
+  if(ringFill){
+    var CIRC = 364.4;
+    requestAnimationFrame(function(){
+      setTimeout(function(){
+        ringFill.style.strokeDashoffset = CIRC * (1 - SPOTS_TAKEN / SPOTS_TOTAL);
+      }, 260);
+    });
+  }
+  var ringLabel = document.querySelector('[data-spots-left]');
+  if(ringLabel){
+    if(reduced){ ringLabel.textContent = spotsLeft; }
+    else {
+      var cur = 0, stepMs = spotsLeft > 0 ? Math.max(650 / spotsLeft, 45) : 0;
+      var t = setInterval(function(){
+        cur++; ringLabel.textContent = cur;
+        if(cur >= spotsLeft){ clearInterval(t); ringLabel.textContent = spotsLeft; }
+      }, stepMs || 45);
+    }
+  }
+
+  /* =========================================================
+     HEADLINE — split into words for a staggered entrance.
+     Keeps the original markup (incl. the <span class="hl">).
+     ========================================================= */
+  if(!reduced){
+    var h1 = document.querySelector('[data-split]');
+    if(h1){
+      var i = 0;
+      var walk = function(node){
+        var kids = Array.prototype.slice.call(node.childNodes);
+        kids.forEach(function(n){
+          if(n.nodeType === 3){
+            var parts = n.textContent.split(/(\s+)/);
+            var frag = document.createDocumentFragment();
+            parts.forEach(function(p){
+              if(!p) return;
+              if(/^\s+$/.test(p)){ frag.appendChild(document.createTextNode(p)); return; }
+              var s = document.createElement('span');
+              s.className = 'w';
+              s.style.animationDelay = (i * 42) + 'ms';
+              s.textContent = p;
+              i++;
+              frag.appendChild(s);
+            });
+            node.replaceChild(frag, n);
+          } else if(n.nodeType === 1){
+            /* Never split inside a background-clip:text element: the
+               inline-block word spans would establish their own boxes, the
+               gradient would stop painting through them, and the inherited
+               `color:transparent` would render the text INVISIBLE.
+               Animate the whole gradient span as a single unit instead. */
+            if(n.classList && n.classList.contains('grad-text')){
+              var wrap = document.createElement('span');
+              wrap.className = 'w';
+              wrap.style.animationDelay = (i * 42) + 'ms';
+              i++;
+              node.insertBefore(wrap, n);
+              wrap.appendChild(n);
+            } else {
+              walk(n);
+            }
+          }
+        });
+      };
+      walk(h1);
+    }
+  }
+
+  /* =========================================================
+     SCROLL ENGINE — one rAF loop, one layout read per frame
+     ========================================================= */
+  var items = [];
+  function onScrollFrame(el, fn){ items.push({el:el, fn:fn}); }
+
+  var ticking = false;
+  function tick(){
+    ticking = false;
+    var vh = window.innerHeight;
+    var doc = document.documentElement;
+
+    /* progress bar */
+    var max = doc.scrollHeight - vh;
+    var p = max > 0 ? Math.min(Math.max(window.scrollY / max, 0), 1) : 0;
+    if(bar) bar.style.transform = 'scaleX(' + p + ')';
+
+    for(var k = 0; k < items.length; k++){
+      var it = items[k];
+      var r = it.el.getBoundingClientRect();
+      /* 0 → element just entering from bottom, 1 → just left the top */
+      var prog = (vh - r.top) / (vh + r.height);
+      it.fn(Math.min(Math.max(prog, 0), 1), r, vh);
+    }
+  }
+  function requestTick(){
+    if(!ticking){ ticking = true; requestAnimationFrame(tick); }
+  }
+
+  var bar = document.querySelector('[data-progress]');
+  window.addEventListener('scroll', requestTick, {passive:true});
+  window.addEventListener('resize', requestTick, {passive:true});
+
+  /* =========================================================
+     PHOTO SEQUENCE — scroll-driven river.
+     Rows translate in opposite directions with scroll progress.
+     ========================================================= */
+  if(!reduced){
+    document.querySelectorAll('[data-river-row]').forEach(function(row){
+      var dir   = parseFloat(row.getAttribute('data-dir'))   || 1;
+      var range = parseFloat(row.getAttribute('data-range')) || 240;
+      row.style.willChange = 'transform';
+      onScrollFrame(row, function(prog){
+        var x = (prog - 0.5) * range * dir;
+        row.style.transform = 'translate3d(' + x.toFixed(2) + 'px,0,0)';
+      });
+      /* per-reel drift + rotation inside the row */
+      row.querySelectorAll('.reel').forEach(function(reel, idx){
+        var f = parseFloat(reel.getAttribute('data-float')) || 1;
+        reel.style.willChange = 'transform';
+        onScrollFrame(reel, function(prog){
+          var yOff = Math.sin((prog * Math.PI * 1.4) + idx * 0.7) * 22 * f;
+          var rot  = (prog - 0.5) * 7 * f * dir;
+          var sc   = 0.94 + Math.sin(prog * Math.PI) * 0.06;
+          reel.style.transform =
+            'translate3d(0,' + yOff.toFixed(2) + 'px,0) rotate(' + rot.toFixed(2) + 'deg) scale(' + sc.toFixed(3) + ')';
+        });
+      });
+    });
+  }
+
+  /* =========================================================
+     HERO ORBIT — reels drift on scroll + follow the mouse
+     ========================================================= */
+  if(!reduced){
+    var orbit = document.querySelector('[data-orbit]');
+    if(orbit){
+      var reels = Array.prototype.slice.call(orbit.querySelectorAll('.reel'));
+      var mx = 0, my = 0, tmx = 0, tmy = 0, scrollP = 0;
+
+      reels.forEach(function(r){ r.style.willChange = 'transform'; });
+
+      onScrollFrame(orbit, function(prog){ scrollP = prog; });
+
+      window.addEventListener('mousemove', function(e){
+        tmx = (e.clientX / window.innerWidth  - 0.5) * 2;
+        tmy = (e.clientY / window.innerHeight - 0.5) * 2;
+      }, {passive:true});
+
+      var tt = 0;
+      (function orbitLoop(){
+        mx += (tmx - mx) * 0.06;
+        my += (tmy - my) * 0.06;
+        tt += 0.006;
+        reels.forEach(function(r, i){
+          var f   = parseFloat(r.getAttribute('data-float')) || 1;
+          var rot = parseFloat(r.getAttribute('data-rot'))   || 0;
+          var amb = Math.sin(tt + i * 1.3) * 11 * f;          /* ambient float  */
+          var sy  = (scrollP - 0.5) * 120 * f;                 /* scroll parallax */
+          var px  = mx * 26 * f;                               /* mouse parallax  */
+          var py  = my * 18 * f;
+          r.style.transform =
+            'translate3d(' + (px).toFixed(2) + 'px,' + (amb + sy + py).toFixed(2) + 'px,0) rotate(' + (rot + mx * 3).toFixed(2) + 'deg)';
+        });
+        requestAnimationFrame(orbitLoop);
+      })();
+    }
+  }
+
+  /* =========================================================
+     ACCENT SYNC — the page changes colour per section
+     ========================================================= */
+  var sections = document.querySelectorAll('section[data-accent]');
+  if(sections.length && 'IntersectionObserver' in window){
+    var root = document.documentElement;
+    var aio = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          e.target.classList.add('live');
+          root.style.setProperty('--accent',   e.target.getAttribute('data-accent'));
+          root.style.setProperty('--accent-2', e.target.getAttribute('data-accent-2'));
+        } else {
+          e.target.classList.remove('live');
+        }
+      });
+    }, {rootMargin:'-42% 0px -42% 0px'});
+    sections.forEach(function(s){ aio.observe(s); });
+  }
+
+  /* =========================================================
+     REVEAL — safe: content visible without JS
+     ========================================================= */
+  if(!reduced && 'IntersectionObserver' in window){
+    document.querySelectorAll('.reveal').forEach(function(el){
+      if(el.getBoundingClientRect().top > window.innerHeight * 1.05){
+        el.classList.add('pre-reveal');
+      }
+    });
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          e.target.classList.remove('pre-reveal');
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, {threshold:0.12});
+    document.querySelectorAll('.reveal.pre-reveal').forEach(function(el){ io.observe(el); });
+  }
+
+  /* =========================================================
+     TILT — hero visual reacts to the pointer (desktop only)
+     ========================================================= */
+  if(!reduced && window.matchMedia('(hover:hover) and (pointer:fine)').matches){
+    document.querySelectorAll('[data-tilt]').forEach(function(el){
+      el.style.transition = 'transform .35s var(--ease)';
+      el.addEventListener('mousemove', function(e){
+        var r = el.getBoundingClientRect();
+        var cx = (e.clientX - r.left) / r.width  - 0.5;
+        var cy = (e.clientY - r.top)  / r.height - 0.5;
+        el.style.transition = 'transform .08s linear';
+        el.style.transform =
+          'perspective(1100px) rotateY(' + (cx * 7).toFixed(2) + 'deg) rotateX(' + (-cy * 7).toFixed(2) + 'deg)';
+      });
+      el.addEventListener('mouseleave', function(){
+        el.style.transition = 'transform .55s var(--ease)';
+        el.style.transform = '';
+      });
+    });
+
+    /* cursor glow */
+    var glow = document.querySelector('[data-cursor]');
+    if(glow){
+      var gx = 0, gy = 0, tgx = 0, tgy = 0, shown = false;
+      window.addEventListener('mousemove', function(e){
+        tgx = e.clientX; tgy = e.clientY;
+        if(!shown){ glow.style.opacity = '1'; shown = true; }
+      }, {passive:true});
+      (function glowLoop(){
+        gx += (tgx - gx) * 0.12;
+        gy += (tgy - gy) * 0.12;
+        glow.style.transform = 'translate3d(' + gx.toFixed(1) + 'px,' + gy.toFixed(1) + 'px,0)';
+        requestAnimationFrame(glowLoop);
+      })();
+    }
+  }
+
+  /* ---------- faq ---------- */
+  document.querySelectorAll('.faq-item').forEach(function(item){
+    var btn = item.querySelector('.faq-q');
+    btn.addEventListener('click', function(){
+      var wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(o){ o.classList.remove('open'); });
+      if(!wasOpen) item.classList.add('open');
+    });
+  });
+
+  /* ---------- sticky cta ---------- */
+  var sticky = document.querySelector('[data-sticky]');
+  var hero = document.querySelector('.hero');
+  if(sticky && hero && 'IntersectionObserver' in window){
+    new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ sticky.classList.toggle('show', !e.isIntersecting); });
+    }, {threshold:0}).observe(hero);
+  }
+
+  /* first paint */
+  requestTick();
+})();
+</script>
+
+</body>
+</html>
