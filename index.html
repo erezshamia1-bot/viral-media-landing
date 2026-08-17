@@ -601,9 +601,11 @@ section.live .sec-glow{opacity:1;}
 .testi-card:hover{transform:translateY(-4px);border-color:color-mix(in srgb, var(--accent-2) 45%, var(--line));}
 .testi-head{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
 .testi-avatar{
-  width:44px;height:44px;border-radius:50%;background:var(--bg-3);
-  display:flex;align-items:center;justify-content:center;color:var(--ink-3);font-weight:700;
-  border:1px dashed var(--line);flex:none;
+  width:48px;height:48px;border-radius:50%;flex:none;
+  background-image:var(--face, none);
+  background-size:cover;background-position:center;
+  border:1.5px solid color-mix(in srgb, var(--accent-2) 45%, transparent);
+  box-shadow:0 4px 14px -4px color-mix(in srgb, var(--accent-2) 60%, transparent);
 }
 .testi-name{font-weight:700;color:var(--ink-0);font-size:15px;}
 .testi-role{font-size:12.5px;color:var(--ink-3);}
@@ -612,6 +614,13 @@ section.live .sec-glow{opacity:1;}
   display:inline-block;margin-top:12px;font-size:11px;color:var(--accent-2);
   border:1px dashed color-mix(in srgb, var(--accent-2) 50%, transparent);
   padding:3px 8px;border-radius:6px;
+}
+/* quote slot — waiting for the person's real words */
+.quote-slot{
+  display:block;font-size:14.5px;line-height:1.6;
+  color:var(--ink-3);font-style:italic;
+  border-inline-start:2px solid color-mix(in srgb, var(--accent-2) 40%, transparent);
+  padding-inline-start:12px;margin:0;
 }
 
 /* value stack */
@@ -1055,52 +1064,131 @@ footer a{color:var(--ink-2);}
       <div class="testi-track">
         <div class="testi-card">
           <div class="testi-head">
-            <div class="testi-avatar">א.כ</div>
-            <div><div class="testi-name">[שם לקוח]</div><div class="testi-role">[תחום עיסוק]</div></div>
+            <div class="testi-avatar" style="--face:url('images/people/shoval-g.jpg')"></div>
+            <div><div class="testi-name">שובל ג׳</div><div class="testi-role">[תחום עיסוק]</div></div>
           </div>
-          <p>"תוך פחות מ-20 דקות יצא לי תוכן שהרגשתי בו בנוח בפעם הראשונה — ולא כתבתי מילה מראש."</p>
-          <span class="placeholder-flag">PLACEHOLDER — להחליף בעדות אמיתית</span>
+          <p class="quote-slot">[הציטוט של שובל ג׳ — במילים שלו/שלה]</p>
+          <span class="placeholder-flag">להשלים בציטוט אמיתי</span>
         </div>
         <div class="testi-card">
           <div class="testi-head">
-            <div class="testi-avatar">ד.מ</div>
-            <div><div class="testi-name">[שם לקוח]</div><div class="testi-role">[תחום עיסוק]</div></div>
+            <div class="testi-avatar" style="--face:url('images/people/shelly-h.jpg')"></div>
+            <div><div class="testi-name">שלי ח׳</div><div class="testi-role">[תחום עיסוק]</div></div>
           </div>
-          <p>"הייתי בטוח שאני 'לא טיפוס למצלמה'. השאלות פשוט הוציאו את זה ממני בטבעיות."</p>
-          <span class="placeholder-flag">PLACEHOLDER — להחליף בעדות אמיתית</span>
+          <p class="quote-slot">[הציטוט של שלי ח׳ — במילים שלו/שלה]</p>
+          <span class="placeholder-flag">להשלים בציטוט אמיתי</span>
         </div>
         <div class="testi-card">
           <div class="testi-head">
-            <div class="testi-avatar">נ.ש</div>
-            <div><div class="testi-name">[שם לקוח]</div><div class="testi-role">[תחום עיסוק]</div></div>
+            <div class="testi-avatar" style="--face:url('images/people/eli-p.jpg')"></div>
+            <div><div class="testi-name">אלי פ׳</div><div class="testi-role">[תחום עיסוק]</div></div>
           </div>
-          <p>"קיבלתי חומר גולמי אמיתי, ערכתי אותו כמו שרציתי, והתוצאה נשמעת בדיוק כמוני."</p>
-          <span class="placeholder-flag">PLACEHOLDER — להחליף בעדות אמיתית</span>
+          <p class="quote-slot">[הציטוט של אלי פ׳ — במילים שלו/שלה]</p>
+          <span class="placeholder-flag">להשלים בציטוט אמיתי</span>
         </div>
-        <!-- duplicate for seamless loop -->
+        <div class="testi-card">
+          <div class="testi-head">
+            <div class="testi-avatar" style="--face:url('images/people/eden-k.jpg')"></div>
+            <div><div class="testi-name">עדן כ׳</div><div class="testi-role">[תחום עיסוק]</div></div>
+          </div>
+          <p class="quote-slot">[הציטוט של עדן כ׳ — במילים שלו/שלה]</p>
+          <span class="placeholder-flag">להשלים בציטוט אמיתי</span>
+        </div>
+        <div class="testi-card">
+          <div class="testi-head">
+            <div class="testi-avatar" style="--face:url('images/people/eden-a.jpg')"></div>
+            <div><div class="testi-name">עדן א׳</div><div class="testi-role">[תחום עיסוק]</div></div>
+          </div>
+          <p class="quote-slot">[הציטוט של עדן א׳ — במילים שלו/שלה]</p>
+          <span class="placeholder-flag">להשלים בציטוט אמיתי</span>
+        </div>
+        <div class="testi-card">
+          <div class="testi-head">
+            <div class="testi-avatar" style="--face:url('images/people/liam-b.jpg')"></div>
+            <div><div class="testi-name">לי-ים ב׳</div><div class="testi-role">[תחום עיסוק]</div></div>
+          </div>
+          <p class="quote-slot">[הציטוט של לי-ים ב׳ — במילים שלו/שלה]</p>
+          <span class="placeholder-flag">להשלים בציטוט אמיתי</span>
+        </div>
+        <div class="testi-card">
+          <div class="testi-head">
+            <div class="testi-avatar" style="--face:url('images/people/chen-bs.jpg')"></div>
+            <div><div class="testi-name">חן בן שמחון</div><div class="testi-role">[תחום עיסוק]</div></div>
+          </div>
+          <p class="quote-slot">[הציטוט של חן בן שמחון — במילים שלו/שלה]</p>
+          <span class="placeholder-flag">להשלים בציטוט אמיתי</span>
+        </div>
+        <div class="testi-card">
+          <div class="testi-head">
+            <div class="testi-avatar" style="--face:url('images/people/hila-s.jpg')"></div>
+            <div><div class="testi-name">הילה ס׳</div><div class="testi-role">[תחום עיסוק]</div></div>
+          </div>
+          <p class="quote-slot">[הציטוט של הילה ס׳ — במילים שלו/שלה]</p>
+          <span class="placeholder-flag">להשלים בציטוט אמיתי</span>
+        </div>
         <div class="testi-card" aria-hidden="true">
           <div class="testi-head">
-            <div class="testi-avatar">א.כ</div>
-            <div><div class="testi-name">[שם לקוח]</div><div class="testi-role">[תחום עיסוק]</div></div>
+            <div class="testi-avatar" style="--face:url('images/people/shoval-g.jpg')"></div>
+            <div><div class="testi-name">שובל ג׳</div><div class="testi-role">[תחום עיסוק]</div></div>
           </div>
-          <p>"תוך פחות מ-20 דקות יצא לי תוכן שהרגשתי בו בנוח בפעם הראשונה — ולא כתבתי מילה מראש."</p>
-          <span class="placeholder-flag">PLACEHOLDER — להחליף בעדות אמיתית</span>
+          <p class="quote-slot">[הציטוט של שובל ג׳ — במילים שלו/שלה]</p>
+          <span class="placeholder-flag">להשלים בציטוט אמיתי</span>
         </div>
         <div class="testi-card" aria-hidden="true">
           <div class="testi-head">
-            <div class="testi-avatar">ד.מ</div>
-            <div><div class="testi-name">[שם לקוח]</div><div class="testi-role">[תחום עיסוק]</div></div>
+            <div class="testi-avatar" style="--face:url('images/people/shelly-h.jpg')"></div>
+            <div><div class="testi-name">שלי ח׳</div><div class="testi-role">[תחום עיסוק]</div></div>
           </div>
-          <p>"הייתי בטוח שאני 'לא טיפוס למצלמה'. השאלות פשוט הוציאו את זה ממני בטבעיות."</p>
-          <span class="placeholder-flag">PLACEHOLDER — להחליף בעדות אמיתית</span>
+          <p class="quote-slot">[הציטוט של שלי ח׳ — במילים שלו/שלה]</p>
+          <span class="placeholder-flag">להשלים בציטוט אמיתי</span>
         </div>
         <div class="testi-card" aria-hidden="true">
           <div class="testi-head">
-            <div class="testi-avatar">נ.ש</div>
-            <div><div class="testi-name">[שם לקוח]</div><div class="testi-role">[תחום עיסוק]</div></div>
+            <div class="testi-avatar" style="--face:url('images/people/eli-p.jpg')"></div>
+            <div><div class="testi-name">אלי פ׳</div><div class="testi-role">[תחום עיסוק]</div></div>
           </div>
-          <p>"קיבלתי חומר גולמי אמיתי, ערכתי אותו כמו שרציתי, והתוצאה נשמעת בדיוק כמוני."</p>
-          <span class="placeholder-flag">PLACEHOLDER — להחליף בעדות אמיתית</span>
+          <p class="quote-slot">[הציטוט של אלי פ׳ — במילים שלו/שלה]</p>
+          <span class="placeholder-flag">להשלים בציטוט אמיתי</span>
+        </div>
+        <div class="testi-card" aria-hidden="true">
+          <div class="testi-head">
+            <div class="testi-avatar" style="--face:url('images/people/eden-k.jpg')"></div>
+            <div><div class="testi-name">עדן כ׳</div><div class="testi-role">[תחום עיסוק]</div></div>
+          </div>
+          <p class="quote-slot">[הציטוט של עדן כ׳ — במילים שלו/שלה]</p>
+          <span class="placeholder-flag">להשלים בציטוט אמיתי</span>
+        </div>
+        <div class="testi-card" aria-hidden="true">
+          <div class="testi-head">
+            <div class="testi-avatar" style="--face:url('images/people/eden-a.jpg')"></div>
+            <div><div class="testi-name">עדן א׳</div><div class="testi-role">[תחום עיסוק]</div></div>
+          </div>
+          <p class="quote-slot">[הציטוט של עדן א׳ — במילים שלו/שלה]</p>
+          <span class="placeholder-flag">להשלים בציטוט אמיתי</span>
+        </div>
+        <div class="testi-card" aria-hidden="true">
+          <div class="testi-head">
+            <div class="testi-avatar" style="--face:url('images/people/liam-b.jpg')"></div>
+            <div><div class="testi-name">לי-ים ב׳</div><div class="testi-role">[תחום עיסוק]</div></div>
+          </div>
+          <p class="quote-slot">[הציטוט של לי-ים ב׳ — במילים שלו/שלה]</p>
+          <span class="placeholder-flag">להשלים בציטוט אמיתי</span>
+        </div>
+        <div class="testi-card" aria-hidden="true">
+          <div class="testi-head">
+            <div class="testi-avatar" style="--face:url('images/people/chen-bs.jpg')"></div>
+            <div><div class="testi-name">חן בן שמחון</div><div class="testi-role">[תחום עיסוק]</div></div>
+          </div>
+          <p class="quote-slot">[הציטוט של חן בן שמחון — במילים שלו/שלה]</p>
+          <span class="placeholder-flag">להשלים בציטוט אמיתי</span>
+        </div>
+        <div class="testi-card" aria-hidden="true">
+          <div class="testi-head">
+            <div class="testi-avatar" style="--face:url('images/people/hila-s.jpg')"></div>
+            <div><div class="testi-name">הילה ס׳</div><div class="testi-role">[תחום עיסוק]</div></div>
+          </div>
+          <p class="quote-slot">[הציטוט של הילה ס׳ — במילים שלו/שלה]</p>
+          <span class="placeholder-flag">להשלים בציטוט אמיתי</span>
         </div>
       </div>
     </div>
