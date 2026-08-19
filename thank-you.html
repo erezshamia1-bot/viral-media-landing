@@ -236,8 +236,12 @@ section.live .sec-glow{opacity:1;}
 @media (max-width:820px){
   .gform-frame{height:2150px;}          /* fields stack → taller on mobile */
 }
-/* form_embed.js sets the real height; this is the pre-load floor */
-.booking-frame{min-height:720px;overflow:hidden;}
+/* Calendly injects its own iframe into this container */
+.calendly-inline-widget{width:100%;}
+.calendly-inline-widget iframe{display:block;width:100%;border:0;}
+@media (max-width:820px){
+  .calendly-inline-widget{height:900px !important;}
+}
 .slot-tag{
   font-size:11px;font-weight:700;letter-spacing:.08em;color:var(--accent-2);
   border:1px solid color-mix(in srgb, var(--accent-2) 45%, transparent);
@@ -497,19 +501,15 @@ footer a{color:var(--ink-2);}
         <span>ביקשתם את <b data-pref-date-value></b> — בחרו אותו ביומן למטה כדי לסגור סופית.</span>
       </div>
 
-      <!-- >>> יומן תיאום פגישות — LeadConnector / GoHighLevel <<<
-           form_embed.js מודד את תוכן ה-iframe ומעדכן לו את הגובה אוטומטית.
-           ה-min-height כאן הוא רק נפילה רכה למקרה שהסקריפט איטי או חסום. -->
+      <!-- >>> יומן תיאום פגישות — Calendly <<<
+           זהו השריון האמיתי, והוא קיים רק כאן — אחרי התשלום.
+           בדף הנחיתה יש לוח זמינות לצפייה בלבד שאי אפשר להזמין דרכו. -->
       <div class="embed-frame">
-        <iframe
-          src="https://api.leadconnectorhq.com/widget/booking/r9CJ42nLwFUvz6wbEpQg"
-          class="booking-frame"
-          title="בחירת מועד לראיון"
-          allow="payment"
-          scrolling="no"
-          id="r9CJ42nLwFUvz6wbEpQg_1786895414266"></iframe>
+        <div class="calendly-inline-widget"
+             data-url="https://calendly.com/viralimedia/pod?hide_gdpr_banner=1&primary_color=c77dff"
+             style="min-width:320px;height:760px;"></div>
       </div>
-      <script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>
+      <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
       <!-- >>> END יומן <<< -->
 
       <div class="step-note">
