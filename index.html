@@ -661,6 +661,17 @@ section.live .sec-glow{opacity:1;}
 .spots-count{font-size:15px;color:var(--ink-2);margin-top:15px;}
 .spots-count b{color:var(--accent-2);font-size:17px;}
 
+/* sold-out state — driven by the real SPOTS_TAKEN number, nothing simulated */
+.btn.is-disabled{
+  pointer-events:none;cursor:not-allowed;
+  background:var(--bg-3);color:var(--ink-3);
+  box-shadow:none;animation:none;filter:grayscale(1);
+}
+.btn.is-disabled::before{display:none;}
+.sold-out-msg{
+  margin:16px auto 0;max-width:420px;font-size:14px;color:var(--ink-2);line-height:1.6;
+}
+
 /* payment */
 .pay-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:36px;align-items:start;}
 .pay-card{border-radius:var(--radius);padding:32px;position:relative;overflow:hidden;}
@@ -1019,9 +1030,9 @@ footer a{color:var(--ink-2);}
   <div class="wrap">
     <div class="eyebrow"><span class="rec-dot"></span> נשארו <b data-spots-left-text>10</b> מקומות · ואז הדף הזה נסגר</div>
 
-    <h1 data-split>אתה לא "לא טוב מול מצלמה" — פשוט אף אחד עוד לא <span class="hl grad-text">שאל אותך את השאלות הנכונות</span></h1>
+    <h1 data-split>20 דקות מול המיקרופון שלנו — ואתה יוצא עם <span class="hl grad-text">3 תכנים ויראליים בקול שלך</span></h1>
 
-    <p class="hero-sub">20 דקות מול מראיין מקצועי שיודע בדיוק מה לחלץ ממך — ואתה יוצא עם <b>3 תכנים שיווקיים בקול שלך</b>. בלי תסריט לשנן, בלי ציוד, בלי עוד קורס שלא תסיים. <b>99 ₪ + מע״מ, ל-10 בעלי עסקים בלבד.</b></p>
+    <p class="hero-sub">אתה לא צריך ללמוד לצלם, ולא צריך תסריט. מראיין מקצועי שואל אותך את השאלות הנכונות, אתה פשוט עונה — ומזה יוצאים <b>3 תכנים מוכנים</b>. בלי ציוד, בלי לשנן, בלי עוד קורס שלא תסיים. <b>99 ₪ + מע״מ, ל-10 בעלי עסקים בלבד.</b></p>
 
     <div class="hero-cta-row">
       <a href="#payment" class="btn btn-primary btn-lg">
@@ -1073,13 +1084,13 @@ footer a{color:var(--ink-2);}
   <div class="sec-glow" aria-hidden="true"></div>
   <div class="wrap">
     <div class="sec-head reveal">
-      <h2>הסרטון שלא צילמת החודש עלה לך הרבה יותר מ-99 שקל</h2>
+      <h2>בזמן שאתה מתמהמה עם התוכן — מישהו אחר לוקח את הלקוחות שלך</h2>
     </div>
     <div class="agitate-body">
-      <p class="reveal stagger beat" style="--d:0ms">פתחת את המצלמה ביום שלישי. עמדת מולה. אמרת שתי מילים.<br><strong>מחקת. ניסית שוב. מחקת שוב.</strong> ואז סגרת את האפליקציה ואמרת לעצמך "נעשה את זה בשבוע הבא".</p>
-      <p class="reveal stagger beat" style="--d:110ms">כתבת לעצמך תסריט — יצא רובוטי, לא נשמע כמוך בכלל. שילמת פעם לצלם — קיבלת וידאו יפה שלא הביא אף לקוח, כי אף אחד לא האמין לו. נרשמת לקורס תוכן — הוא עדיין שם, בסימנייה.</p>
-      <p class="reveal stagger beat" style="--d:220ms">ובינתיים המתחרה שלך מדבר בביטחון ברילס. <strong>הוא לא מצלם יותר טוב ממך. הוא פשוט מצלם.</strong></p>
-      <div class="callout reveal">כל חודש שאתה שקט ברשת, מישהו אחר תופס את המקום שהיה אמור להיות שלך. לא כי הוא מבין יותר ממך בתחום — אלא כי אותו לקוח פוטנציאלי ראה אותו, ואותך לא.</div>
+      <p class="reveal stagger beat" style="--d:0ms">אמרת "בשבוע הבא אני מתחיל לצלם". אמרת את זה גם בחודש שעבר.<br><strong>ובינתיים הלקוח שחיפש בדיוק את מה שאתה עושה — מצא מישהו אחר.</strong></p>
+      <p class="reveal stagger beat" style="--d:110ms">הוא לא בחר בו כי הוא מקצועי ממך. הוא בחר בו כי הוא <strong>ראה אותו</strong>. הוא ראה אותו מדבר, הבין מה הוא עושה, והרגיש שהוא מכיר אותו. אותך הוא לא ראה, כי לא היה מה לראות.</p>
+      <p class="reveal stagger beat" style="--d:220ms">וזה קורה כל שבוע. עוד לקוח, ועוד אחד. <strong>כל אחד מהם שווה הרבה יותר מ-99 שקל</strong> — וזה בדיוק מה שעולה לך כל חודש שאתה שותק.</p>
+      <div class="callout reveal">התוכן שלא צילמת החודש לא עלה לך 0 שקלים. הוא עלה לך בכל לקוח שלא הגיע, בכל עסקה שנסגרה אצל מישהו אחר, ובכל פעם שמישהו חיפש אותך — ולא מצא כלום.</div>
     </div>
   </div>
 </section>
@@ -1092,7 +1103,7 @@ footer a{color:var(--ink-2);}
   <div class="wrap">
     <div class="sec-head reveal">
       <h2>ככה נראים 20 דקות מול המיקרופון שלנו</h2>
-      <p>אלה אנשים אמיתיים שישבו על אותו כיסא, מול אותו מיקרופון. בלי תסריט, בלי לשנן, בלי איפור — פשוט ענו על שאלות. זה כל הסוד.</p>
+      <p>אנשים אמיתיים — חלקם כאלה שכבר ראיתם ברשתות. כולם ישבו על אותו כיסא, מול אותו מיקרופון. בלי תסריט, בלי לשנן, בלי איפור. רק תוכן אמיתי ואותנטי.</p>
     </div>
   </div>
 
@@ -1163,7 +1174,7 @@ footer a{color:var(--ink-2);}
   <div class="sec-glow" aria-hidden="true"></div>
   <div class="wrap">
     <div class="sec-head reveal">
-      <h2>מה בדיוק נכנס לך ליד — בלי אותיות קטנות</h2>
+      <h2>אז מה בדיוק אתה הולך לקבל?</h2>
     </div>
     <div class="value-box grad-border reveal">
       <ul class="value-list">
@@ -1192,15 +1203,16 @@ footer a{color:var(--ink-2);}
   <div class="sec-glow" aria-hidden="true"></div>
   <div class="wrap">
     <div class="sec-head reveal">
-      <h2>רגע — למה 99 שקל? מה הקאץ'?</h2>
+      <h2>אז רגע — מה הקאץ'?</h2>
       <p>שאלה הוגנת. אם היינו במקומך, גם אנחנו היינו שואלים אותה.</p>
     </div>
     <div class="why-box grad-border reveal">
-      <h3>אין קאץ'. יש אינטרס — ואנחנו נגיד לך אותו בדיוק.</h3>
-      <p>ב-99 שקל אנחנו <strong>לא מרוויחים על השירות הזה</strong>. זה מכסה לנו את שעת העבודה, וזהו. אנחנו עושים את זה כי זו הדרך הכי זולה והכי כנה שלנו להכיר בעלי עסקים אמיתיים — כאלה שבאמת מזיזים דברים, ולא רק אומרים שיום אחד יתחילו.</p>
-      <p><strong>ההימור שלנו פשוט:</strong> שתצא מהראיון עם 3 תכנים שאתה באמת גאה בהם, ותזכור מי ישב איתך. אם יתאים לשנינו — נדבר על המשך. אם לא — יצאת עם 3 תכנים ב-99 שקל, וזה עדיין העסקה הכי טובה שעשית החודש.</p>
+      <h3>אין פה קאץ'. יש אינטרס — ואנחנו נגיד לך אותו בדיוק.</h3>
+      <p>בוא נהיה דוגרי: ב-99 שקל אנחנו <strong>מפסידים על השירות הזה</strong>. זה אפילו לא מכסה לנו את עלות שעת העבודה — לא את המראיין, לא את האולפן ולא את הציוד. אנחנו יודעים את זה, ובכל זאת בחרנו לעשות את זה.</p>
+      <p><strong>למה?</strong> כי הדרך הכי טובה שלנו להסביר למה אנחנו הכי טובים בלהוציא תוכן ויראלי — היא פשוט לעשות לך את זה. אתה יכול לקרוא עלינו כמה שתרצה, או שתשב 20 דקות ותראה בעצמך מה יוצא. אנחנו מעדיפים את השני.</p>
+      <p>אחרי שתחזיק ביד 3 תכנים שאתה גאה בהם, תבין למה אנשים חוזרים אלינו. <strong>זה כל ההימור.</strong> אם יתאים לשנינו — נדבר על המשך. אם לא — יצאת עם 3 תכנים ב-99 שקל, וזו העסקה הכי טובה שעשית החודש.</p>
       <div class="why-grid">
-        <div class="why-cell"><b>מה זה כן</b><span>ראיון אמיתי, מראיין אמיתי, 3 תכנים גולמיים שיוצאים לך ביד באותו שבוע.</span></div>
+        <div class="why-cell"><b>מה זה כן</b><span>ראיון אמיתי, מראיין מקצועי, ו-3 תכנים גולמיים שיוצאים לך ביד באותו שבוע.</span></div>
         <div class="why-cell"><b>מה זה לא</b><span>לא וידאו ערוך ומוכן להעלאה, ולא מנוי שמתחדש בשקט בכרטיס האשראי.</span></div>
       </div>
     </div>
@@ -1245,8 +1257,8 @@ footer a{color:var(--ink-2);}
   <div class="sec-glow" aria-hidden="true"></div>
   <div class="wrap">
     <div class="sec-head reveal">
-      <h2>לא צריך להאמין לנו על המילה</h2>
-      <p>אלה בעלי עסקים שכבר ישבו על הכיסא. אלה המילים שלהם, לא שלנו.</p>
+      <h2>אז למה שתאמינו לנו? תאמינו להם.</h2>
+      <p>בדיוק אותם אנשים שהגיעו, ישבו על הכיסא, וראו במו עיניהם מה אפשר להוציא מ-20 דקות. אלה המילים שלהם, לא שלנו.</p>
     </div>
   </div>
   <div class="wrap">
@@ -1377,9 +1389,9 @@ footer a{color:var(--ink-2);}
   <div class="sec-glow" aria-hidden="true"></div>
   <div class="wrap">
     <div class="scarcity-box reveal">
-      <div class="eyebrow"><span class="rec-dot"></span> מקומות אמיתיים · לא ספירה מזויפת שמתאפסת מחר</div>
-      <h2 style="font-size:clamp(22px,3vw,28px);">10 בעלי עסקים. לא 11. ואז הדף הזה יורד.</h2>
-      <p style="color:var(--ink-2);max-width:500px;margin:12px auto 0;">דוגרי: זה לא טריק. יש לנו זמן לעשות את זה כמו שצריך ל-10 אנשים, ולא באחד יותר. השירות חד-פעמי לכל עסק, ולא ניתן לרכוש אותו פעמיים — גם אם תבקש.</p>
+      <div class="eyebrow"><span class="rec-dot"></span> מקומות אמיתיים · הספירה מתעדכנת ידנית, לא מתאפסת מחר</div>
+      <h2 style="font-size:clamp(22px,3vw,28px);">בוא נבדוק אם אתה אחד מאותם 10</h2>
+      <p style="color:var(--ink-2);max-width:520px;margin:12px auto 0;">10 בעלי עסקים. לא 11. יש לנו זמן לעשות את זה כמו שצריך לעשרה אנשים בלבד, והשירות חד-פעמי לכל עסק. <strong style="color:var(--ink-1)">אם הכפתור למטה כבוי — המקומות נתפסו,</strong> והמחיר הזה לא יחזור.</p>
       <div class="spots-ring-wrap">
         <div class="spots-ring">
           <svg viewBox="0 0 132 132">
@@ -1390,9 +1402,10 @@ footer a{color:var(--ink-2);}
         </div>
         <div class="spots-count">נותרו <b data-spots-left-text>10</b> מקומות פנויים</div>
       </div>
-      <a href="#payment" class="btn btn-primary">לתפוס את המקום שלי
+      <a href="#payment" class="btn btn-primary" data-spots-cta>לבדוק אם נשאר לי מקום
         <svg class="arr" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
       </a>
+      <p class="sold-out-msg" data-sold-out hidden>המקומות למחזור הזה נתפסו. רוצה להיות ראשון בתור לפעם הבאה? <a class="wa-inline" href="https://wa.me/972552803175" target="_blank" rel="noopener">כתוב לנו בוואטסאפ</a>.</p>
     </div>
   </div>
 </section>
@@ -1702,6 +1715,12 @@ footer a{color:var(--ink-2);}
     form.addEventListener('submit', function(e){
       e.preventDefault();
 
+      /* Disabling the button is not enough — pressing Enter inside any field
+         still fires submit. Sold out means sold out.
+         `spotsLeft` is declared further down; var-hoisting makes it visible
+         here, and it is assigned long before any user can submit. */
+      if(spotsLeft <= 0) return;
+
       var name  = form.name.value.trim();
       var email = form.email.value.trim();
       var phone = form.phone.value.trim();
@@ -1789,6 +1808,23 @@ footer a{color:var(--ink-2);}
         if(cur >= spotsLeft){ clearInterval(t); ringLabel.textContent = spotsLeft; }
       }, stepMs || 45);
     }
+  }
+
+  /* Sold out: every buy button goes dead and the form stops submitting.
+     This is driven purely by SPOTS_TAKEN above — set it to 10 and the
+     page closes itself honestly, with nothing simulated. */
+  if(spotsLeft <= 0){
+    document.querySelectorAll('[data-spots-cta], [data-lead-submit], .sticky-cta .btn')
+      .forEach(function(el){
+        el.classList.add('is-disabled');
+        el.setAttribute('aria-disabled','true');
+        if(el.tagName === 'BUTTON') el.disabled = true;
+        var lbl = el.querySelector('.btn-label');
+        if(lbl) lbl.textContent = 'המקומות נתפסו';
+        else if(el.hasAttribute('data-spots-cta')) el.textContent = 'המקומות נתפסו';
+      });
+    var so = document.querySelector('[data-sold-out]');
+    if(so) so.hidden = false;
   }
 
   /* =========================================================
